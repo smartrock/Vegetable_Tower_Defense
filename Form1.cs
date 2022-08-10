@@ -7,14 +7,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace Vegetable_Tower_Defense
 {
-    public partial class Form1 : Form
+    public partial class FrmGame : Form
     {
-        public Form1()
+        Graphics g; //declare a graphics object called g 
+        List<Missile> missiles = new List<Missile>();
+
+        public int units;
+        public bool pause;
+
+        public FrmGame()
         {
             InitializeComponent();
+            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, PnlGame, new object[] { true });
+        }
+
+        private void PnlGame_Paint(object sender, PaintEventArgs e)
+        {
+            //get the graphics used to paint on the panel control
+            g = e.Graphics;
+            //call the Planet class's DrawPlanet method to draw the image planet1 
+            foreach (Missile m in missiles)
+            {
+                m.drawMissile(g);
+                m.moveMissile(g);
+            }
+        }
+
+        private void MnuPause_Click(object sender, EventArgs e)
+        {
+            TmrWave.Enabled = false;
+            TmrMissile.Enabled = false;
+            pause = true;
+        }
+
+        private void MnuPlay_Click(object sender, EventArgs e)
+        {
+            TmrWave.Enabled = true;
+            TmrMissile.Enabled = true;
+            pause = false;
+        }
+
+        private void TmrScreen_Tick(object sender, EventArgs e)
+        {
+            PnlGame.Invalidate();
         }
     }
 }
