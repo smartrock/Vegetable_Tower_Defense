@@ -15,6 +15,7 @@ namespace Vegetable_Tower_Defense
     {
         Graphics g; //declare a graphics object called g 
         List<Missile> missiles = new List<Missile>();
+        Waves[] length = new Waves[5];
 
         public int units = 0;
         public bool pause = false;
@@ -22,11 +23,12 @@ namespace Vegetable_Tower_Defense
 
         public FrmGame()
         {
-            TmrWave.Enabled = false;
-            TmrMissile.Enabled = false;
-            TmrScreen.Enabled = true;
             InitializeComponent();
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, PnlGame, new object[] { true });
+            for (int i = 0; i < 5; i++)
+            {
+                length[i] = new Waves();
+            }
         }
 
         private void PnlGame_Paint(object sender, PaintEventArgs e)
@@ -38,6 +40,11 @@ namespace Vegetable_Tower_Defense
             {
                 m.drawMissile(g);
                 m.moveMissile(g);
+            }
+
+            foreach (Waves w in length)
+            {
+                w.DrawWaves(g);
             }
         }
 
