@@ -16,11 +16,15 @@ namespace Vegetable_Tower_Defense
         Graphics g; //declare a graphics object called g 
         List<Missile> missiles = new List<Missile>();
 
-        public int units;
-        public bool pause;
+        public int units = 0;
+        public bool pause = false;
+        public int waves = 0;
 
         public FrmGame()
         {
+            TmrWave.Enabled = false;
+            TmrMissile.Enabled = false;
+            TmrScreen.Enabled = true;
             InitializeComponent();
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, PnlGame, new object[] { true });
         }

@@ -9,13 +9,15 @@ namespace Vegetable_Tower_Defense
 {
     class Waves
     {
-        public int wave;
+        public int wave, x, y;
         public Image[] vege = new Image[5];//variable for the different vegetable images
         public Rectangle[] vegearea = new Rectangle[5]; // Rectangles to contain the vegetable images
         Point[] turns = new Point[6];
 
         public Waves()
         {
+            x =
+            y = 
             vege[0] = Properties.Resources.pea; 
             vege[1] = Properties.Resources.onion;
             vege[2] = Properties.Resources.carrot;
