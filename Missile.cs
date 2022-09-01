@@ -11,7 +11,7 @@ namespace Vegetable_Tower_Defense
     class Missile
     {
         // declare fields to use in the class
-        public int x, y, width, height;//variables for the rectangle
+        public int xm, ym, width, height;//variables for the rectangle
         public int missileRotated;
         public double xSpeed, ySpeed;
         public Image missileImage;//variable for the missile's image
@@ -22,19 +22,19 @@ namespace Vegetable_Tower_Defense
         //Create a constructor (initialises the values of the fields)
         public Missile(Rectangle spaceRec, int missileRotate)
         {
-            x = 100;
-            y = 100;
+            xm = 100;
+            ym = 100;
             width = 20;
             height = 20;
             //planetImage contains the plane1.png image
             missileImage = Properties.Resources.missile;
-            missileRec = new Rectangle(x, y, width, height);
+            missileRec = new Rectangle(xm, ym, width, height);
             //this code works out the speed of the missile to be used in the moveMissile method
             xSpeed = 30 * (Math.Cos((missileRotate - 90) * Math.PI / 180));
             ySpeed = 30 * (Math.Sin((missileRotate + 90) * Math.PI / 180));
             //calculate x,y to move missile to middle of spaceship in drawMissile method
-            x = spaceRec.X + spaceRec.Width / 2;
-            y = spaceRec.Y + spaceRec.Height / 2;
+            xm = spaceRec.X + spaceRec.Width / 2;
+            ym = spaceRec.Y + spaceRec.Height / 2;
             //pass missileRotate angle to missileRotated so that it can be used in the drawMissile method
             missileRotated = missileRotate;
         }
@@ -42,7 +42,7 @@ namespace Vegetable_Tower_Defense
         public void drawMissile(Graphics g)
         {
             //centre missile 
-            centreMissile = new Point(x, y);
+            centreMissile = new Point(xm, ym);
             //instantiate a Matrix object called matrixMissile
             matrixMissile = new Matrix();
             //rotate the matrix (in this case missileRec) about its centre
@@ -54,9 +54,9 @@ namespace Vegetable_Tower_Defense
         }
         public void moveMissile(Graphics g)
         {
-            x += (int)xSpeed;//cast double to an integer value
-            y -= (int)ySpeed;
-            missileRec.Location = new Point(x, y);//missiles new location
+            xm += (int)xSpeed;//cast double to an integer value
+            ym -= (int)ySpeed;
+            missileRec.Location = new Point(xm, ym);//missiles new location
 
         }
     }

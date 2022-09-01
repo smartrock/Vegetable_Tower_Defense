@@ -103,6 +103,56 @@ namespace Vegetable_Tower_Defense.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap holding {
+            get {
+                object obj = ResourceManager.GetObject("holding", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap holding2 {
+            get {
+                object obj = ResourceManager.GetObject("holding2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap holding3 {
+            get {
+                object obj = ResourceManager.GetObject("holding3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap holding4 {
+            get {
+                object obj = ResourceManager.GetObject("holding4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap holding5 {
+            get {
+                object obj = ResourceManager.GetObject("holding5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mapp {
             get {
                 object obj = ResourceManager.GetObject("mapp", resourceCulture);
@@ -146,6 +196,16 @@ namespace Vegetable_Tower_Defense.Properties {
         internal static System.Drawing.Bitmap potato {
             get {
                 object obj = ResourceManager.GetObject("potato", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap score {
+            get {
+                object obj = ResourceManager.GetObject("score", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

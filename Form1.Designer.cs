@@ -42,12 +42,14 @@ namespace Vegetable_Tower_Defense
             this.LblMoney = new System.Windows.Forms.Label();
             this.LblLives = new System.Windows.Forms.Label();
             this.TmrScreen = new System.Windows.Forms.Timer(this.components);
+            this.TmrMissile = new System.Windows.Forms.Timer(this.components);
+            this.TxtName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PnlGame = new System.Windows.Forms.Panel();
-            this.TmrMissile = new System.Windows.Forms.Timer(this.components);
             this.MnuGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -112,8 +114,24 @@ namespace Vegetable_Tower_Defense
             // 
             this.TmrScreen.Tick += new System.EventHandler(this.TmrScreen_Tick);
             // 
+            // TmrMissile
+            // 
+            this.TmrMissile.Interval = 50;
+            // 
+            // TxtName
+            // 
+            resources.ApplyResources(this.TxtName, "TxtName");
+            this.TxtName.Name = "TxtName";
+            this.TxtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtName_KeyPress_1);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
             // pictureBox3
             // 
+            this.pictureBox3.Image = global::Vegetable_Tower_Defense.Properties.Resources.score;
             resources.ApplyResources(this.pictureBox3, "pictureBox3");
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.TabStop = false;
@@ -146,15 +164,13 @@ namespace Vegetable_Tower_Defense
             this.PnlGame.Name = "PnlGame";
             this.PnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlGame_Paint);
             // 
-            // TmrMissile
-            // 
-            this.TmrMissile.Interval = 50;
-            // 
             // FrmGame
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tan;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TxtName);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -167,6 +183,7 @@ namespace Vegetable_Tower_Defense
             this.Controls.Add(this.MnuGame);
             this.DoubleBuffered = true;
             this.Name = "FrmGame";
+            this.Load += new System.EventHandler(this.FrmGame_Load);
             this.MnuGame.ResumeLayout(false);
             this.MnuGame.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -196,6 +213,8 @@ namespace Vegetable_Tower_Defense
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Timer TmrScreen;
         private System.Windows.Forms.Timer TmrMissile;
+        private System.Windows.Forms.TextBox TxtName;
+        private System.Windows.Forms.Label label1;
     }
 }
 
