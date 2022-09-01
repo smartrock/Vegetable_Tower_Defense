@@ -27,24 +27,30 @@ namespace Vegetable_Tower_Defense
 
             if (unittype == "1")
             {
-
+                unitimage = Properties.Resources.holding;
             }
             if (unittype == "2")
             {
-
+                unitimage = Properties.Resources.holding2;
             }
             if (unittype == "3")
             {
-
+                unitimage = Properties.Resources.holding3;
             }
             if (unittype == "4")
             {
-
+                unitimage = Properties.Resources.holding4;
             }
             if (unittype == "5")
             {
-
+                unitimage = Properties.Resources.holding5;
             }
+        }
+
+        public void DrawUnit(Graphics g)
+        {
+            unitrec = new Rectangle(xu, yu, width, height);
+            g.DrawImage(unitimage, unitrec);
         }
     }
 }

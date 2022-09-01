@@ -16,6 +16,7 @@ namespace Vegetable_Tower_Defense
         Graphics g; //declare a graphics object called g 
         List<Missile> missiles = new List<Missile>();
         List<Waves> length = new List<Waves>();
+        List<Units> unit = new List<Units>();
 
         public int units = 0;
         public int waves = 0;
@@ -56,6 +57,11 @@ namespace Vegetable_Tower_Defense
             {
                 w.DrawWaves(g);
                 w.moveWaves(g);
+            }
+
+            foreach (Units u in unit)
+            {
+                u.DrawUnit(g);
             }
         }
 
