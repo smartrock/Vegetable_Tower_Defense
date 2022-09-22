@@ -10,47 +10,59 @@ namespace Vegetable_Tower_Defense
 {
     class Waves
     {
-        public int xw, yw, width, height;
-        public Image[] vege = new Image[5];//variable for the different vegetable images
-        public Rectangle[] vegearea = new Rectangle[5]; // Rectangles to contain the vegetable images
+        public int x, y, width, height, speed;
         public double xTrans, yTrans;
-        Point[] turns = new Point[6];
-        //Point vegecentre = new Point();
+        Point Turn1 = new Point(130, 145);
+        Point Turn2 = new Point(130, 355);
+        Point Turn3 = new Point(275, 145);
+        Point Turn4 = new Point(275, 355);
+        Point Turn5 = new Point(435, 145);
+        Point Turn6 = new Point(435, 355);
 
-        public Waves(Rectangle vegearea)
+        public Waves(Rectangle vegearea, int MoveSpeed)
         {
-            xw = 0;
-            yw = 122;
-            width = 32;
-            height = 32;
             // Setting the images to specific rectangle types
-            vege[0] = Properties.Resources.pea;
-            vege[1] = Properties.Resources.onion;
-            vege[2] = Properties.Resources.carrot;
-            vege[3] = Properties.Resources.tomato;
-            vege[4] = Properties.Resources.potato;
-            vegearea = new Rectangle(xw, yw, width, height);
-            xTrans = 10;
-            yTrans = 0;
-            xw = vegearea.X + vegearea.Height / 2;
-            yw = vegearea.Y + vegearea.Width / 2;
+            speed = MoveSpeed;
+            //xw = vegearea.X + vegearea.Height / 2;
+            //yw = vegearea.Y + vegearea.Width / 2;
         }
 
         public void DrawWaves(Graphics g)
         {
             //vegecentre = new Point(x, y);
             // Drawing the images and there respective rectangles
-            for (int i = 0; i < 5; i++)
-            {
-                g.DrawImage(vege[i], vegearea[i]);
-            }
         }
 
         public void moveWaves(Graphics g)
         {
-            xw += (int)xTrans;//cast double to an integer value
-            yw -= (int)yTrans;
-            //vegearea.Location = new Point(x, y);//missiles new location
+            if (x < Turn1.X)
+            {
+                x += speed;
+            }
+            else if (x == Turn1.X && y != Turn2.Y)
+            {
+                y += speed;
+            }
+            else if (y == Turn2.Y && x != Turn3.X)
+            {
+                x += speed;
+            }
+            else if (x == Turn3.X && y != Turn4.Y)
+            {
+                y -= speed;
+            }
+            else if (y == Turn4.Y && x != Turn5.X)
+            {
+                x += speed;
+            }
+            else if (x == Turn5.X && y != Turn6.Y)
+            {
+                y += speed;
+            }
+            else if (y == Turn6.Y && x < 580)
+            {
+                x += speed;
+            }
         }
 
     }
