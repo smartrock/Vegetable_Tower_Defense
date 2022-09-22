@@ -17,13 +17,21 @@ namespace Vegetable_Tower_Defense
         public Rectangle unitrec;
         public Image unitimage;
 
-        public Units(int X, int Y, string Name)
+        public Units(int X, int Y, int Name)
         {
+            foreach (GetUnitInfo i in GlobalVariables.unitInfo)
+            {
+                if (i.Type == Name)
+                {
+
+                }
+            }
+
             xu = X;
             yu = Y;
             width = 50;
             height = 50;
-            unittype = Name;
+            //unittype = Name;
 
             if (unittype == "1")
             {

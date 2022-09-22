@@ -14,8 +14,8 @@ namespace Vegetable_Tower_Defense
     public partial class FrmGame : Form
     {
         Graphics g; //declare a graphics object called g 
-        List<Missile> missiles = new List<Missile>();
-        List<Waves> length = new List<Waves>();
+        
+        
         List<Units> unit = new List<Units>();
 
         public int units = 0;
@@ -47,17 +47,16 @@ namespace Vegetable_Tower_Defense
             //get the graphics used to paint on the panel control
             g = e.Graphics;
             //call the Planet class's DrawPlanet method to draw the image planet1 
-            foreach (Missile m in missiles)
-            {
-                m.drawMissile(g);
-                m.moveMissile(g);
-            }
+            //foreach (Missile m in missiles)
+            //{
+            //    m.drawMissile(g);
+            //    m.moveMissile(g);
+            //}
 
-            foreach (Waves w in length)
-            {
-                w.DrawWaves(g);
-                w.moveWaves(g);
-            }
+            //foreach (Vegetables v in length)
+            //{
+            //    v.DrawVegetables(g);
+            //}
 
             foreach (Units u in unit)
             {
@@ -77,6 +76,7 @@ namespace Vegetable_Tower_Defense
             TxtName.Enabled = false;
             TmrWave.Enabled = true;
             TmrMissile.Enabled = true;
+            MessageBox.Show("I have a willy", "willy!");
             pause = false;
         }
 
@@ -106,6 +106,9 @@ namespace Vegetable_Tower_Defense
             TxtName.Focus();
             MnuPause.Enabled = false;
             MnuPlay.Enabled = false;
+
+            GlobalVariables.vegieInfo.Add(new GetVegieInfo(1,1,1));
+            GlobalVariables.unitInfo.Add(new GetUnitInfo(1, 1, 1, 1));
         }
         private void TxtName_KeyPress_1(object sender, KeyPressEventArgs e)
         {

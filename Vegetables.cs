@@ -14,8 +14,16 @@ namespace Vegetable_Tower_Defense
         public Image[] vege = new Image[5];//variable for the different vegetable images
         public Rectangle[] vegearea = new Rectangle[5]; // Rectangles to contain the vegetable images
 
-        public Vegetables(Rectangle vegearea, int Speed, int Health, int Type)
+        public Vegetables(int Type)
         {
+            foreach (GetVegieInfo i in GlobalVariables.vegieInfo)
+            {
+                if (i.Type == Type)
+                {
+
+                }
+            }
+
             x = 0;
             y = 122;
             width = 32;
@@ -25,13 +33,11 @@ namespace Vegetable_Tower_Defense
             vege[2] = Properties.Resources.carrot;
             vege[3] = Properties.Resources.tomato;
             vege[4] = Properties.Resources.potato;
-            vegearea = new Rectangle(x, y, width, height);
-            speed = Speed;
-            health = Health;
+            //vegearea = new Rectangle(x, y, width, height);
             type = Type;
         }
 
-        public void DrawVegetable(Graphics g)
+        public void DrawVegetables(Graphics g)
         {
             for (int i = 0; i < 5; i++)
             {
