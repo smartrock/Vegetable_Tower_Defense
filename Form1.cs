@@ -14,8 +14,6 @@ namespace Vegetable_Tower_Defense
     public partial class FrmGame : Form
     {
         Graphics g; //declare a graphics object called g 
-        
-        
         List<Units> unit = new List<Units>();
 
         public int units = 0;
@@ -76,7 +74,6 @@ namespace Vegetable_Tower_Defense
             TxtName.Enabled = false;
             TmrWave.Enabled = true;
             TmrMissile.Enabled = true;
-            MessageBox.Show("I have a willy", "willy!");
             pause = false;
         }
 
@@ -107,7 +104,14 @@ namespace Vegetable_Tower_Defense
             MnuPause.Enabled = false;
             MnuPlay.Enabled = false;
 
-            GlobalVariables.vegieInfo.Add(new GetVegieInfo(1,1,1));
+            //Vegetables specific info
+            GlobalVariables.vegieInfo.Add(new GetVegieInfo(0,1,5));
+            GlobalVariables.vegieInfo.Add(new GetVegieInfo(1, 4, 4));
+            GlobalVariables.vegieInfo.Add(new GetVegieInfo(2, 8, 3));
+            GlobalVariables.vegieInfo.Add(new GetVegieInfo(3, 15, 2));
+            GlobalVariables.vegieInfo.Add(new GetVegieInfo(4, 30, 1));
+
+            //Units specific info
             GlobalVariables.unitInfo.Add(new GetUnitInfo(1, 1, 1, 1));
         }
         private void TxtName_KeyPress_1(object sender, KeyPressEventArgs e)

@@ -11,7 +11,6 @@ namespace Vegetable_Tower_Defense
     class Waves
     {
         public int x, y, width, height, speed;
-        public double xTrans, yTrans;
         Point Turn1 = new Point(130, 145);
         Point Turn2 = new Point(130, 355);
         Point Turn3 = new Point(275, 145);
@@ -19,10 +18,10 @@ namespace Vegetable_Tower_Defense
         Point Turn5 = new Point(435, 145);
         Point Turn6 = new Point(435, 355);
 
-        public Waves(Rectangle vegearea, int MoveSpeed)
+        public Waves()
         {
             // Setting the images to specific rectangle types
-            speed = MoveSpeed;
+            
             //xw = vegearea.X + vegearea.Height / 2;
             //yw = vegearea.Y + vegearea.Width / 2;
         }
@@ -33,7 +32,7 @@ namespace Vegetable_Tower_Defense
             // Drawing the images and there respective rectangles
         }
 
-        public void moveWaves(Graphics g)
+        public void MoveWaves(Graphics g)
         {
             if (x < Turn1.X)
             {

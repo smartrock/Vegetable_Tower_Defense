@@ -20,7 +20,9 @@ namespace Vegetable_Tower_Defense
             {
                 if (i.Type == Type)
                 {
-
+                    health = i.Health;
+                    speed = i.Speed;
+                    type = i.Type;
                 }
             }
 
@@ -34,7 +36,6 @@ namespace Vegetable_Tower_Defense
             vege[3] = Properties.Resources.tomato;
             vege[4] = Properties.Resources.potato;
             //vegearea = new Rectangle(x, y, width, height);
-            type = Type;
         }
 
         public void DrawVegetables(Graphics g)
