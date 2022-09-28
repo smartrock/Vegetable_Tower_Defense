@@ -15,22 +15,18 @@ namespace Vegetable_Tower_Defense
     {
         Graphics g; //declare a graphics object called g 
         List<Units> unit = new List<Units>();
+        List<Waves> vege = new List<Waves>();
 
         public int units = 0;
-        public int waves = 0;
+        public int waves = 3;
         public int score = 0;
-        public int lives = 20;
+        public int lives = 50; 
         public int money = 200;
-        public bool pause = false;
 
         public FrmGame()
         {
             InitializeComponent();
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, PnlGame, new object[] { true });
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    length[i] = new Waves();
-            //}
             TmrMissile.Enabled = false;
             TmrWave.Enabled = false;
             TmrScreen.Enabled = true;
@@ -51,10 +47,11 @@ namespace Vegetable_Tower_Defense
             //    m.moveMissile(g);
             //}
 
-            //foreach (Vegetables v in length)
-            //{
-            //    v.DrawVegetables(g);
-            //}
+            foreach (Waves w in vege)
+            {
+                w.DrawWaves(g);
+                w.MoveWaves(g);
+            }
 
             foreach (Units u in unit)
             {
@@ -66,7 +63,6 @@ namespace Vegetable_Tower_Defense
         {
             TmrWave.Enabled = false;
             TmrMissile.Enabled = false;
-            pause = true;
         }
 
         private void MnuPlay_Click(object sender, EventArgs e)
@@ -74,7 +70,6 @@ namespace Vegetable_Tower_Defense
             TxtName.Enabled = false;
             TmrWave.Enabled = true;
             TmrMissile.Enabled = true;
-            pause = false;
         }
 
         private void TmrScreen_Tick(object sender, EventArgs e)
@@ -84,14 +79,10 @@ namespace Vegetable_Tower_Defense
 
         private void TmrWave_Tick(object sender, EventArgs e)
         {
-            //if ()
-            //{
-            //    for (int i = 0; i < waves; i++)
-            //    {
-            //        length.Add(new Waves());
-            //    }
-            //}
-            //TmrWave.Enabled = false;
+            int i;
+            i = waves;
+
+
         }
 
         private void FrmGame_Load(object sender, EventArgs e)

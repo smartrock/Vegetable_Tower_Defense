@@ -10,7 +10,9 @@ namespace Vegetable_Tower_Defense
 {
     class Waves
     {
-        public int x, y, movespeed;
+        public int x, y, movespeed, number; //Declearing class variables
+        public List<Vegetables> Number = new List<Vegetables>();
+        //Adding the coordinates where 
         Point Turn1 = new Point(130, 145);
         Point Turn2 = new Point(130, 355);
         Point Turn3 = new Point(275, 145);
@@ -18,21 +20,23 @@ namespace Vegetable_Tower_Defense
         Point Turn5 = new Point(435, 145);
         Point Turn6 = new Point(435, 355);
 
-        public Waves()
+        public Waves(int speed, int waves)
         {
-            // Setting the images to specific rectangle types
-            
-            //xw = vegearea.X + vegearea.Height / 2;
-            //yw = vegearea.Y + vegearea.Width / 2;
+            movespeed = speed * 2;
+            number = waves;
         }
 
-        //public void DrawWaves(Graphics g)
-        //{
-            
-        //}
+        public void DrawWaves(Graphics g)
+        {
+            for (int i = 0; i< number; i++)
+            {
+                Number.Add(new Vegetables(2));
+            }
+        }
 
         public void MoveWaves(Graphics g)
         {
+            //Changes path that waves move at the turning pints on the background map
             if (x < Turn1.X)
             {
                 x += movespeed;

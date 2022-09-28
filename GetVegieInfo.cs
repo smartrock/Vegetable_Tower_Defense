@@ -8,6 +8,8 @@ namespace Vegetable_Tower_Defense
 {
     class GetVegieInfo
     {
+        //Grabbing the vegetables values it will have
+
         public GetVegieInfo(int type, int health, int speed)
         {
             Type = type;
@@ -15,6 +17,7 @@ namespace Vegetable_Tower_Defense
             Speed = speed;
         }
 
+        // Variables that will set for each individual vegetable
         public int Type { get; set; }
         public int Health { get; set; }
         public int Speed { get; set; }
