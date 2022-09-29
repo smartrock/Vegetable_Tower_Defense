@@ -15,10 +15,9 @@ namespace Vegetable_Tower_Defense
     {
         Graphics g; //declare a graphics object called g 
         List<Units> unit = new List<Units>();
-        List<Waves> vege = new List<Waves>();
 
         public int units = 0;
-        public int waves = 3;
+        public int waves = 0;
         public int score = 0;
         public int lives = 50; 
         public int money = 200;
@@ -47,17 +46,27 @@ namespace Vegetable_Tower_Defense
             //    m.moveMissile(g);
             //}
 
-            foreach (Waves w in vege)
-            {
-                w.DrawWaves(g);
-                w.MoveWaves(g);
-            }
-
             foreach (Units u in unit)
             {
                 u.DrawUnit(g);
             }
+            foreach (Vegetables v in GlobalVariables.vegetables)
+            {
+                v.MoveVegetables(g);
+                v.DrawVegetables(g);
+
+            }
+
         }
+
+        public void PreLevel()
+        {
+            for (int i = 0; i < waves; i++)
+            {
+                GlobalVariables.vegetables.Add(new Vegetables(0));
+            }
+        }
+
 
         private void MnuPause_Click(object sender, EventArgs e)
         {
@@ -67,9 +76,12 @@ namespace Vegetable_Tower_Defense
 
         private void MnuPlay_Click(object sender, EventArgs e)
         {
+            waves = waves + 1;
             TxtName.Enabled = false;
             TmrWave.Enabled = true;
             TmrMissile.Enabled = true;
+            TmrScreen.Enabled = true;
+            PreLevel();
         }
 
         private void TmrScreen_Tick(object sender, EventArgs e)
@@ -81,8 +93,6 @@ namespace Vegetable_Tower_Defense
         {
             int i;
             i = waves;
-
-
         }
 
         private void FrmGame_Load(object sender, EventArgs e)
