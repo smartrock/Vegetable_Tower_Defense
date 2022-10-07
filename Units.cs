@@ -10,28 +10,28 @@ namespace Vegetable_Tower_Defense
 {
     class Units
     {
-        public int xu, yu, width, height;
-        public int unitslength;
-        public double speed, range, reload;
+        public int x, y, width, height, type, speed, range, damage;
         public string unittype;
-        public Rectangle unitrec;
-        public Image unitimage;
+        public Rectangle unitrec = new Rectangle();
+        public Image[] unitimage = new Image[5];
 
-        public Units(int X, int Y, int Name)
+        public Units(int X, int Y, int Type)
         {
             foreach (GetUnitInfo i in GlobalVariables.unitInfo)
             {
-                if (i.Type == Name)
+                if (i.Type == Type)
                 {
-
+                    health = i.Health;
+                    speed = i.Speed;
+                    type = i.Type;
+                    damage = i.Damage;
                 }
             }
 
-            xu = X;
-            yu = Y;
+            x = X;
+            y = Y;
             width = 50;
             height = 50;
-            //unittype = Name;
 
             if (unittype == "1")
             {
@@ -53,12 +53,18 @@ namespace Vegetable_Tower_Defense
             {
                 unitimage = Properties.Resources.holding5;
             }
+            unitrec = new Rectangle(x, y, width, height);
         }
 
         public void DrawUnit(Graphics g)
         {
-            unitrec = new Rectangle(xu, yu, width, height);
+            unitrec = new Rectangle(x, y, width, height);
             g.DrawImage(unitimage, unitrec);
+        }
+        
+        public void MoveUnit(Graphics g)
+        {
+            unitrec.Location = new Point(x,y);
         }
     }
 }
