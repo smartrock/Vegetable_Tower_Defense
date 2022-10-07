@@ -64,11 +64,13 @@ namespace Vegetable_Tower_Defense
             int b;
             b = waves;
             for (int i = 0; i < b; i++)
-            {
+            {  
+                // Adds same number of basic level vegetables as wave count
                 GlobalVariables.vegetables.Add(new Vegetables(0));
             }
             if (b >= (b - 5))
             {
+                // Adds 5 less of second level vegetables as number in wave count
                 for (int i = 0; i < (b - 5); i++)
                 {
                     GlobalVariables.vegetables.Add(new Vegetables(1));
@@ -76,6 +78,7 @@ namespace Vegetable_Tower_Defense
             }
             if (b >= (b - 10))
             {
+                // Adds 10 less of second level vegetables as number in wave count
                 for (int i = 0; i < (b - 10); i++)
                 {
                     GlobalVariables.vegetables.Add(new Vegetables(2));
@@ -83,6 +86,7 @@ namespace Vegetable_Tower_Defense
             }
             if (b >= (b - 15))
             {
+                // Adds 15 less of second level vegetables as number in wave count
                 for (int i = 0; i < (b - 15); i++)
                 {
                     GlobalVariables.vegetables.Add(new Vegetables(3));
@@ -90,6 +94,7 @@ namespace Vegetable_Tower_Defense
             }
             if (b >= (b - 20))
             {
+                // Adds 20 less of second level vegetables as number in wave count
                 for (int i = 0; i < (b - 20); i++)
                 {
                     GlobalVariables.vegetables.Add(new Vegetables(4));
@@ -97,6 +102,7 @@ namespace Vegetable_Tower_Defense
             }
             if (b >= (b - 25))
             {
+                // Adds 25 less of second level vegetables as number in wave count
                 for (int i = 0; i < (b - 25); i++)
                 {
                     GlobalVariables.vegetables.Add(new Vegetables(5));
@@ -107,22 +113,24 @@ namespace Vegetable_Tower_Defense
 
         private void MnuPause_Click(object sender, EventArgs e)
         {
-            TmrWave.Enabled = false;
-            TmrMissile.Enabled = false;
+            TmrWave.Enabled = false; // Stops waves timer
+            TmrMissile.Enabled = false; // Stops units missile timer
         }
 
         private void MnuPlay_Click(object sender, EventArgs e)
         {
-            waves = waves + 1;
-            TxtName.Enabled = false;
-            TmrWave.Enabled = true;
-            TmrMissile.Enabled = true;
-            TmrScreen.Enabled = true;
-            PreLevel();
+            waves = waves + 1; // Adds one to the count of the length of waves to bring a harder waves
+            TxtName.Enabled = false; // Freezes name in corner of the screen
+            TmrWave.Enabled = true; // Starts waves timer
+            TmrMissile.Enabled = true; // Starts units missile timer
+            TmrScreen.Enabled = true; // Checks screen timer is running
+            PreLevel(); // Calls function to run level
+            MnuPlay.Enabled = false; // Disables play button while level / waves is in action
         }
 
         private void TmrScreen_Tick(object sender, EventArgs e)
         {
+            // Keeps refreshing the game screen when the vegetables are moving and when units are being added to the playing field 
             PnlGame.Invalidate();
         }
 
