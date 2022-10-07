@@ -15,7 +15,7 @@ namespace Vegetable_Tower_Defense
     {
         Graphics g; //declare a graphics object called g 
         List<Units> unit = new List<Units>();
-
+        // Resetting in game variables
         public int units = 0;
         public int waves = 0;
         public int score = 0;
@@ -54,9 +54,7 @@ namespace Vegetable_Tower_Defense
             {
                 v.MoveVegetables(g);
                 v.DrawVegetables(g);
-
             }
-
         }
 
         public void PreLevel()
