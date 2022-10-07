@@ -61,9 +61,46 @@ namespace Vegetable_Tower_Defense
 
         public void PreLevel()
         {
-            for (int i = 0; i < waves; i++)
+            int b;
+            b = waves;
+            for (int i = 0; i < b; i++)
             {
                 GlobalVariables.vegetables.Add(new Vegetables(0));
+            }
+            if (b >= (b - 5))
+            {
+                for (int i = 0; i < (b - 5); i++)
+                {
+                    GlobalVariables.vegetables.Add(new Vegetables(1));
+                }
+            }
+            if (b >= (b - 10))
+            {
+                for (int i = 0; i < (b - 10); i++)
+                {
+                    GlobalVariables.vegetables.Add(new Vegetables(2));
+                }
+            }
+            if (b >= (b - 15))
+            {
+                for (int i = 0; i < (b - 15); i++)
+                {
+                    GlobalVariables.vegetables.Add(new Vegetables(3));
+                }
+            }
+            if (b >= (b - 20))
+            {
+                for (int i = 0; i < (b - 20); i++)
+                {
+                    GlobalVariables.vegetables.Add(new Vegetables(4));
+                }
+            }
+            if (b >= (b - 25))
+            {
+                for (int i = 0; i < (b - 25); i++)
+                {
+                    GlobalVariables.vegetables.Add(new Vegetables(5));
+                }
             }
         }
 
