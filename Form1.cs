@@ -97,6 +97,7 @@ namespace Vegetable_Tower_Defense
 
         private void FrmGame_Load(object sender, EventArgs e)
         {
+            //Resetting the labels on game screen to show the actual values
             LblLives.Text = lives.ToString();
             LblWaves.Text = waves.ToString();
             LblMoney.Text = money.ToString();
