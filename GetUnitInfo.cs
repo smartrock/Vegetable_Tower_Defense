@@ -10,13 +10,15 @@ namespace Vegetable_Tower_Defense
     {
         public GetUnitInfo(int type, int speed, int range, int damage)
         {
+            // Assigning values to categories in here from global variables
             Type = type;
             Speed = speed;
             Range = range;
             Damage = damage;
 
         }
-
+        
+        // Binding ints with their values
         public int Type { get; set; }
         public int Speed { get; set; }
         public int Range { get; set; }
