@@ -86,7 +86,7 @@ namespace Vegetable_Tower_Defense
             }
             else
             {
-
+                lives = lives - 1;
                 GlobalVariables.vegetables.Remove(this);
             }
 
