@@ -160,19 +160,19 @@ namespace Vegetable_Tower_Defense
             MnuPause.Enabled = false;
             MnuPlay.Enabled = false;
 
-            //Vegetables specific info
+            //Vegetables specific info; type, health, speed
             GlobalVariables.vegieInfo.Add(new GetVegieInfo(0,1,5));
             GlobalVariables.vegieInfo.Add(new GetVegieInfo(1, 4, 4));
             GlobalVariables.vegieInfo.Add(new GetVegieInfo(2, 8, 3));
             GlobalVariables.vegieInfo.Add(new GetVegieInfo(3, 15, 2));
             GlobalVariables.vegieInfo.Add(new GetVegieInfo(4, 30, 1));
 
-            //Units specific info
-            GlobalVariables.unitInfo.Add(new GetUnitInfo(0, 1, 1, 1));
-            GlobalVariables.unitInfo.Add(new GetUnitInfo(1, 1, 1, 1));
-            GlobalVariables.unitInfo.Add(new GetUnitInfo(3, 1, 1, 1));
-            GlobalVariables.unitInfo.Add(new GetUnitInfo(4, 1, 1, 1));
-            GlobalVariables.unitInfo.Add(new GetUnitInfo(5, 1, 1, 1));
+            //Units specific info; type, speed, range, damage, cost
+            GlobalVariables.unitInfo.Add(new GetUnitInfo(0, 1, 150, 1, 50));
+            GlobalVariables.unitInfo.Add(new GetUnitInfo(1, 1, 100, 1, 100));
+            GlobalVariables.unitInfo.Add(new GetUnitInfo(3, 1, 200, 1, 200));
+            GlobalVariables.unitInfo.Add(new GetUnitInfo(4, 1, 150, 1, 350));
+            GlobalVariables.unitInfo.Add(new GetUnitInfo(5, 1, 300, 1, 500));
         }
         private void TxtName_KeyPress_1(object sender, KeyPressEventArgs e)
         {
