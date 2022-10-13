@@ -10,11 +10,11 @@ namespace Vegetable_Tower_Defense
 {
     class Vegetables
     {
-        public int x, y, width, height, speed, health, type, movespeed;
+        public int x, y, width, height, speed, health, type, movespeed; // Declearing int variables
         public Image[] vegeImg = new Image[5];//variable for the different vegetable images
         public Rectangle vegearea = new Rectangle(); // Rectangles to contain the vegetable images
 
-        //Adding the coordinates where 
+        //Adding the coordinates where the game map changes direction
         Point Turn1 = new Point(120, 145);
         Point Turn2 = new Point(120, 345);
         Point Turn3 = new Point(265, 345);
@@ -28,6 +28,7 @@ namespace Vegetable_Tower_Defense
             {
                 if (i.Type == Type)
                 {
+                    // Gathering and setting vegetable info for in class use
                     health = i.Health;
                     speed = i.Speed;
                     type = i.Type;
@@ -38,7 +39,8 @@ namespace Vegetable_Tower_Defense
             y = 122;
             width = 32;
             height = 32;
-            movespeed = speed * 2;
+            movespeed = speed * waves / 5; // Makes a fair speed for the vegetables to move on screen
+            // Sets different images with their type
             vegeImg[0] = Properties.Resources.pea;
             vegeImg[1] = Properties.Resources.onion;
             vegeImg[2] = Properties.Resources.carrot;
@@ -49,8 +51,8 @@ namespace Vegetable_Tower_Defense
 
         public void DrawVegetables(Graphics g)
         {
-            vegearea = new Rectangle(x, y, width, height);
-            g.DrawImage(vegeImg[type], vegearea);
+            vegearea = new Rectangle(x, y, width, height); //Creates rectangle with location and size
+            g.DrawImage(vegeImg[type], vegearea); // Binds image and rectangle and draws them together
         }
 
         public void MoveVegetables(Graphics g)
@@ -86,11 +88,11 @@ namespace Vegetable_Tower_Defense
             }
             else
             {
-                lives = lives - 1;
-                GlobalVariables.vegetables.Remove(this);
+                lives = lives - 1; // Changes lives once the vegetables reach the end
+                GlobalVariables.vegetables.Remove(this); // Removes vegetable once it is off the screen
             }
 
-            vegearea.Location = new Point(x, y);
+            vegearea.Location = new Point(x, y); // Updates vegeares' location
         }
     }
 }
