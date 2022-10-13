@@ -14,7 +14,7 @@ namespace Vegetable_Tower_Defense
         public Rectangle unitrec = new Rectangle(); // rectangle for unit image to be inside
         public Image[] unitimage = new Image[5]; // Image array for the different unit types
 
-        public Units(int X, int Y, int Type)
+        public Units(int Type)
         {
             foreach (GetUnitInfo i in GlobalVariables.unitInfo)
             {
@@ -29,8 +29,8 @@ namespace Vegetable_Tower_Defense
                 }
             }
 
-            x = X;
-            y = Y;
+            x = 550;
+            y = 600;
             width = 50;
             height = 50;
 
@@ -50,8 +50,11 @@ namespace Vegetable_Tower_Defense
             g.DrawImage(unitimage[type], unitrec); // Draws image with its rectangle
         }
         
-        public void MoveUnit(Graphics g)
+        public void MoveUnit(int mouseX, int mouseY)
         {
+            // Moving unit to mouse location
+            unitrec.X = mouseX;
+            unitrec.Y = mouseY;
             
             unitrec.Location = new Point(x,y); // Sets new rectangle location
         }
