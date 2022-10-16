@@ -175,7 +175,7 @@ namespace Vegetable_Tower_Defense
             resources.ApplyResources(this.BtnUnit0, "BtnUnit0");
             this.BtnUnit0.Name = "BtnUnit0";
             this.BtnUnit0.UseVisualStyleBackColor = true;
-            this.BtnUnit0.Click += new System.EventHandler(this.BtnUnit0_Click);
+            //this.BtnUnit0.Click += new System.EventHandler(this.BtnUnit0_Click);
             // 
             // BtnUnit1
             // 
@@ -183,7 +183,7 @@ namespace Vegetable_Tower_Defense
             resources.ApplyResources(this.BtnUnit1, "BtnUnit1");
             this.BtnUnit1.Name = "BtnUnit1";
             this.BtnUnit1.UseVisualStyleBackColor = true;
-            this.BtnUnit1.Click += new System.EventHandler(this.BtnUnit1_Click);
+            //this.BtnUnit1.Click += new System.EventHandler(this.BtnUnit1_Click);
             // 
             // BtnUnit2
             // 
@@ -191,7 +191,7 @@ namespace Vegetable_Tower_Defense
             resources.ApplyResources(this.BtnUnit2, "BtnUnit2");
             this.BtnUnit2.Name = "BtnUnit2";
             this.BtnUnit2.UseVisualStyleBackColor = true;
-            this.BtnUnit2.Click += new System.EventHandler(this.BtnUnit2_Click);
+            //this.BtnUnit2.Click += new System.EventHandler(this.BtnUnit2_Click);
             // 
             // BtnUnit3
             // 
@@ -199,7 +199,7 @@ namespace Vegetable_Tower_Defense
             resources.ApplyResources(this.BtnUnit3, "BtnUnit3");
             this.BtnUnit3.Name = "BtnUnit3";
             this.BtnUnit3.UseVisualStyleBackColor = true;
-            this.BtnUnit3.Click += new System.EventHandler(this.BtnUnit3_Click);
+            //this.BtnUnit3.Click += new System.EventHandler(this.BtnUnit3_Click);
             // 
             // BtnUnit4
             // 
@@ -207,7 +207,7 @@ namespace Vegetable_Tower_Defense
             resources.ApplyResources(this.BtnUnit4, "BtnUnit4");
             this.BtnUnit4.Name = "BtnUnit4";
             this.BtnUnit4.UseVisualStyleBackColor = true;
-            this.BtnUnit4.Click += new System.EventHandler(this.BtnUnit4_Click);
+            //this.BtnUnit4.Click += new System.EventHandler(this.BtnUnit4_Click);
             // 
             // FrmGame
             // 

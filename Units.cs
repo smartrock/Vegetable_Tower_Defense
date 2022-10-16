@@ -29,8 +29,8 @@ namespace Vegetable_Tower_Defense
                 }
             }
 
-            x = 550;
-            y = 600;
+            x = 250;
+            y = 250;
             width = 50;
             height = 50;
 
