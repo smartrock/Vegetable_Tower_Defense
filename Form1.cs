@@ -14,13 +14,13 @@ namespace Vegetable_Tower_Defense
     public partial class FrmGame : Form
     {
         Graphics g; //declare a graphics object called g 
-        List<Units> unit = new List<Units>();
+        //List<Units> unit = new List<Units>();
         // Resetting in game variables
-        public int units = 0;
-        public int waves = 0;
+        //public int units = 0;
+        public int waves = 4;
         public int score = 0;
         public int lives = 50; 
-        public int money = 200;
+        public int money = 49;
 
         public FrmGame()
         {
@@ -40,28 +40,23 @@ namespace Vegetable_Tower_Defense
         {
             //get the graphics used to paint on the panel control
             g = e.Graphics;
-            //call the Planet class's DrawPlanet method to draw the image planet1 
-            //foreach (Missile m in missiles)
-            //{
-            //    m.drawMissile(g);
-            //    m.moveMissile(g);
-            //}
 
-            foreach (Units u in unit) // The drawing and movement controls for the units class
-            {
-                u.DrawUnit(g);
-                u.MoveUnit(g);
-            }
-            foreach (Vegetables v in GlobalVariables.vegetables) // The drawing and movement controls for the vegetables 
-            {
-                v.MoveVegetables(g);
-                v.DrawVegetables(g);
-            }
             // Updating values on game screen
             LblScore.Text = score.ToString();
             LblLives.Text = lives.ToString();
             LblWaves.Text = waves.ToString();
             LblMoney.Text = money.ToString();
+
+            foreach (Units u in GlobalVariables.units) // The drawing and movement controls for the units class
+            {
+                u.DrawUnit(g);
+                //u.MoveUnit(g);
+            }
+            foreach (Vegetables v in GlobalVariables.vegetables) // The drawing and movement controls for the vegetables 
+            {
+                v.MoveVegetables(g);
+                //break;
+            }
         }
 
         public void PreLevel()
@@ -121,8 +116,7 @@ namespace Vegetable_Tower_Defense
             TmrWave.Enabled = false; // Stops waves timer
             TmrMissile.Enabled = false; // Stops units missile timer
             MnuPlay.Enabled = true;
-            MnuPause.Enabled = false;
-            
+            MnuPause.Enabled = false; // Disables pause until play is clicked again
         }
 
         private void MnuPlay_Click(object sender, EventArgs e)
@@ -135,6 +129,7 @@ namespace Vegetable_Tower_Defense
             PreLevel(); // Calls function to run level
             MnuPause.Enabled = true;
             MnuPlay.Enabled = false; // Disables play button while level / waves is in action
+            Console.WriteLine("refresh");
         }
 
         private void TmrScreen_Tick(object sender, EventArgs e)
@@ -195,7 +190,72 @@ namespace Vegetable_Tower_Defense
                 MnuPause.Enabled = true;
             }
         }
-        
+
+        private void BtnUnit0_Click(object sender, EventArgs e)
+        {
+            if (money > 50)
+            {
+                GlobalVariables.units.Add(new Units(0));
+            }
+            else
+            {
+                MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before comming back." , "Bank alert!");
+            }
+        }
+
+        private void BtnUnit1_Click(object sender, EventArgs e)
+        {
+            if (money > 50)
+            {
+                GlobalVariables.units.Add(new Units(1));
+            }
+            else
+            {
+                MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before comming back.", "Bank alert!");
+            }
+        }
+
+        private void BtnUnit2_Click(object sender, EventArgs e)
+        {
+            if (money > 50)
+            {
+                GlobalVariables.units.Add(new Units(2));
+            }
+            else
+            {
+                MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before comming back.", "Bank alert!");
+            }
+        }
+
+        private void BtnUnit3_Click(object sender, EventArgs e)
+        {
+            if (money > 50)
+            {
+                GlobalVariables.units.Add(new Units(3));
+            }
+            else
+            {
+                MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before comming back.", "Bank alert!");
+            }
+        }
+
+        private void BtnUnit4_Click(object sender, EventArgs e)
+        {
+            if (money > 50)
+            {
+                GlobalVariables.units.Add(new Units(4));
+            }
+            else
+            {
+                MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before comming back.", "Bank alert!");
+            }
+        }
+
+        private void FrmGame_MouseMove(object sender, MouseEventArgs e)
+        {
+            //units.MoveUnit(e.X, e.Y);
+        }
+
         //private void Form1_MouseDown(object sender, MouseEventArgs e)
         //{
         //    foreach (Rectangle r in units)
@@ -205,11 +265,6 @@ namespace Vegetable_Tower_Defense
         //            area[count].Location = new Point(e.X, e.Y);
         //        }
         //    }
-        //}
-        
-        //private void Form1_MouseMove(object sender, MouseEventArgs e)
-        //{
-        //    units.MoveUnit(e.X, e.Y);
         //}
     }
 }

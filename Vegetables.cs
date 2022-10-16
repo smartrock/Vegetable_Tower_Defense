@@ -10,7 +10,7 @@ namespace Vegetable_Tower_Defense
 {
     class Vegetables
     {
-        public int x, y, width, height, speed, health, type, movespeed; // Declearing int variables
+        public int x, y, width, height, speed, health, type, movespeed, waves, lives; // Declearing int variables
         public Image[] vegeImg = new Image[5];//variable for the different vegetable images
         public Rectangle vegearea = new Rectangle(); // Rectangles to contain the vegetable images
 
@@ -93,6 +93,7 @@ namespace Vegetable_Tower_Defense
             }
 
             vegearea.Location = new Point(x, y); // Updates vegeares' location
+            DrawVegetables(g);
         }
     }
 }

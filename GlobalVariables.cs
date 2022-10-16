@@ -13,6 +13,7 @@ namespace Vegetable_Tower_Defense
         private static List<GetUnitInfo> U_unitinfo = new List<GetUnitInfo>();
         private static List<Vegetables> V_vegetables = new List<Vegetables>();
         private static List<Missile> V_missiles = new List<Missile>();
+        private static List<Units> V_units = new List<Units>();
 
         public static List<GetVegieInfo> vegieInfo
         {
@@ -30,6 +31,12 @@ namespace Vegetable_Tower_Defense
         {
             get { return V_vegetables; }
             set { V_vegetables = value; }
+        }
+
+        public static List<Units> units
+        {
+            get { return V_units; }
+            set { V_units = value; }
         }
 
         public static List<Missile> missiles

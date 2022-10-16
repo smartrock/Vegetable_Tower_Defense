@@ -21,7 +21,7 @@ namespace Vegetable_Tower_Defense
                 if (i.Type == Type)
                 {
                     // Gets the specific unit info from global variables
-                    health = i.Health;
+                    range = i.Range;
                     speed = i.Speed;
                     type = i.Type;
                     damage = i.Damage;
@@ -36,7 +36,7 @@ namespace Vegetable_Tower_Defense
 
             // Sets up the correct image with the corresponding type number
             unitimage[0] = Properties.Resources.holding;
-            unitimage[1] = Properties.Resources.holding1;
+            unitimage[1] = Properties.Resources.holding5;
             unitimage[2] = Properties.Resources.holding2;
             unitimage[3] = Properties.Resources.holding3;
             unitimage[4] = Properties.Resources.holding4;
@@ -56,7 +56,7 @@ namespace Vegetable_Tower_Defense
             unitrec.X = mouseX;
             unitrec.Y = mouseY;
             
-            unitrec.Location = new Point(x,y); // Sets new rectangle location
+            //unitrec.Location = new Point(x,y); // Sets new rectangle location
         }
     }
 }
