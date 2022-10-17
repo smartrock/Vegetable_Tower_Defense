@@ -123,17 +123,25 @@ namespace Vegetable_Tower_Defense
 
         private void MnuPlay_Click(object sender, EventArgs e)
         {
-            play = true;
-            waves = waves + 1; // Adds one to the count of the length of waves to bring a harder waves
             TxtName.Enabled = false; // Freezes name in corner of the screen
-            TmrWave.Enabled = true; // Starts waves timer
-            TmrMissile.Enabled = true; // Starts units missile timer
-            TmrScreen.Enabled = true; // Checks screen timer is running
-            PreLevel(); // Calls function to run level
-            MnuPause.Enabled = true;
-            MnuPlay.Enabled = false; // Disables play button while level / waves is in action
-
-            Console.WriteLine(play);
+            
+            if (play == true) // If the game isn't paused then start next level
+            {
+                waves = waves + 1; // Adds one to the count of the length of waves to bring a harder waves
+                TmrWave.Enabled = true; // Starts waves timer
+                TmrMissile.Enabled = true; // Starts units missile timer
+                TmrScreen.Enabled = true; // Checks screen timer is running
+                PreLevel(); // Calls function to run level and add vegetables to the screen
+                MnuPause.Enabled = true; // Allows the pause button to be used
+                MnuPlay.Enabled = false; // Disables play button while level / waves is in action
+            }
+            else // If game is pause then just continue on same level with out adding more vegetables
+            {
+                TmrMissile.Enabled = true; // Starts units missile timer
+                TmrScreen.Enabled = true; // Checks screen timer is running
+                MnuPause.Enabled = true; // Allows the pause button to be used
+                MnuPlay.Enabled = false; // Disables play button while level / waves is in action
+            }
         }
 
         private void TmrScreen_Tick(object sender, EventArgs e)
