@@ -142,6 +142,12 @@ namespace Vegetable_Tower_Defense
         {
             // Keeps refreshing the game screen when the vegetables are moving and when units are being added to the playing field 
             PnlGame.Invalidate();
+            
+            if (GlobalVariables.vegetables.Count() <= 0)
+            {
+                MnuPlay.Enabled = true;
+                GlobalVariables.play = true;
+            }
         }
 
         private void TmrWave_Tick(object sender, EventArgs e)
@@ -182,6 +188,7 @@ namespace Vegetable_Tower_Defense
             GlobalVariables.money = 200;
 
             GlobalVariables.play = true;
+            GlobalVariables.space;
         }
         private void TxtName_KeyPress_1(object sender, KeyPressEventArgs e)
         {
@@ -208,7 +215,10 @@ namespace Vegetable_Tower_Defense
 
         private void FrmGame_MouseMove(object sender, MouseEventArgs e)
         {
-            //units.MoveUnit(e.X, e.Y);
+            if (GlobalVariables.units.Count() <= 0)
+            {
+                Units.MoveUnit(e.X, e.Y);
+            }
         }
 
         private void BtnUnit0_Click(object sender, EventArgs e)
