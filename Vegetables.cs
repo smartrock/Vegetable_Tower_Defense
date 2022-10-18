@@ -24,7 +24,7 @@ namespace Vegetable_Tower_Defense
 
         public Vegetables(int Type)
         {
-            foreach (GetVegieInfo i in GlobalVariables.vegieInfo)
+            foreach (GetVegieInfo i in GlobalVariables.vegieInfo) // Repeats this function the same number as vegieInfo length
             {
                 if (i.Type == Type)
                 {
@@ -35,9 +35,9 @@ namespace Vegetable_Tower_Defense
                 }
             }
 
-            x = 0;
+            x = 0; // Starting coordinates for the vegetables
             y = 120;
-            width = 32;
+            width = 32; // Vegetable rectangle dimentions
             height = 32;
             movespeed = speed * GlobalVariables.waves / 2 + 1; // Makes a fair speed for the vegetables to move on screen
             // Sets different images with their type
@@ -57,11 +57,9 @@ namespace Vegetable_Tower_Defense
 
         public void MoveVegetables(Graphics g)
         {
-            Console.WriteLine(x + ", " + y);
 
-            if (GlobalVariables.play == true)
+            if (GlobalVariables.play == true) // Checks that the game isn't paused
             {
-                
                 //Changes path that waves move at the turning pints on the background map
                 if (x < Turn1.X)
                 {
@@ -99,7 +97,7 @@ namespace Vegetable_Tower_Defense
             }
 
             vegearea.Location = new Point(x, y); // Updates vegeares' location
-            DrawVegetables(g);
+            DrawVegetables(g); // Calls the draw function to draw the vegetable in its new position
         }
     }
 }
