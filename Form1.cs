@@ -278,12 +278,14 @@ namespace Vegetable_Tower_Defense
 
         private void FrmGame_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyData == Keys.Left) { left = true; }
+            if (e.KeyData == Keys.Right) { right = true; }
         }
 
         private void FrmGame_KeyUp(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyData == Keys.Left) { left = false; }
+            if (e.KeyData == Keys.Right) { right = false; }
         }
 
         //private void Form1_MouseDown(object sender, MouseEventArgs e)
