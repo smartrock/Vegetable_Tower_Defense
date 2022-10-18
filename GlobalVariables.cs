@@ -9,7 +9,7 @@ namespace Vegetable_Tower_Defense
     internal class GlobalVariables
     {
         private static int V_score, V_money, V_lives, V_waves;
-        private static bool V_play;
+        private static bool V_play, V_space;
         private static List<GetVegieInfo> V_vegieinfo = new List<GetVegieInfo>();
         private static List<GetUnitInfo> U_unitinfo = new List<GetUnitInfo>();
         private static List<Vegetables> V_vegetables = new List<Vegetables>();
@@ -44,6 +44,12 @@ namespace Vegetable_Tower_Defense
         {
             get { return V_play; }
             set { V_play = value; }
+        }
+        
+        public static bool space
+        {
+            get { return V_space; }
+            set { V_space = value; }
         }
 
         public static List<GetVegieInfo> vegieInfo
