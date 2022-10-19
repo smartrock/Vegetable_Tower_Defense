@@ -62,6 +62,8 @@ namespace Vegetable_Tower_Defense
             GlobalVariables.score = 0;
             GlobalVariables.lives = 50;
             GlobalVariables.money = 200;
+            GlobalVariables.MouseXPos = 0;
+            GlobalVariables.MouseYPos = 0;
             
             // Assigning values to the global bools
             GlobalVariables.play = true;
@@ -341,6 +343,9 @@ namespace Vegetable_Tower_Defense
                 GlobalVariables.units.Last().MoveUnit(e.X, e.Y); // Moves unit to the mouse X, Y coordinates
                 PnlGame.Invalidate(); // Runs the paint event so the movement is drawn on screen
             }
+            // Setting the mouse coordinates to inter form variables
+            GlobalVariables.MouseXPos = e.X;
+            GlobalVariables.MouseYPos = e.Y;
         }
 
         private void PnlGame_MouseClick(object sender, MouseEventArgs e)
