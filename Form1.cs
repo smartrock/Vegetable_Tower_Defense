@@ -359,6 +359,19 @@ namespace Vegetable_Tower_Defense
             {
                 GlobalVariables.missiles.Add(new Missile(units.unitrec)); // Adds a steam of bullets when the space bar is held down
             }
+            foreach (Vegetables v in GlobalVariables.vegetables)
+            {
+                foreach (Missile m in GlobalVariables.missiles)
+                {
+                    if (v.vegearea.IntersectsWith(m.missileRec))
+                    {
+                        GlobalVariables.missiles.Remove(m); // Removes missiles and vegetables once they contact
+                        GlobalVariables.vegetables.Remove(v);
+                        break; // Stops code breaking when there are no more missiles or vegetables
+                    }
+                }
+            }
+            this.Invalidate();
         }
     }
 }
