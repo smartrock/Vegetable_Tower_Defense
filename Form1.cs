@@ -352,7 +352,7 @@ namespace Vegetable_Tower_Defense
         {
             if (GlobalVariables.space == true && GlobalVariables.units.Count() > 0) // Checks if the space bar is being pressed and if there are units on screen
             {
-                GlobalVariables.missiles.Add(new Missile()); // Adds a steam of bullets when the space bar is held down
+                GlobalVariables.missiles.Add(new Missile(units.unitrec)); // Adds a steam of bullets when the space bar is held down
             }
         }
     }
