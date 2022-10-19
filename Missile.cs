@@ -20,22 +20,18 @@ namespace Vegetable_Tower_Defense
         Point centreMissile;
 
         //Create a constructor (initialises the values of the fields)
-        public Missile()
+        public Missile(Rectangle unitrec)
         {
-            x = 250;
-            y = 250;
-            width = 20;
+            x = unitrec.X + (unitrec.width / 2); // Starting position at unit location
+            y = unitrec.Y + (unitrec.height / 2); // Starting position at unit location
+            width = 20; // Width and height of missile rectange
             height = 20;
-            //planetImage contains the plane1.png image
-            missileImage = Properties.Resources.missile; 
+            missileImage = Properties.Resources.missile; //planetImage contains the plane1.png image
+            missileRotated = Math.InverseTan((GlobalVariables.MouseXPos - x) / (GlobalVariables.MouseYPos - y));
             //this code works out the speed of the missile to be used in the moveMissile method
-            xSpeed = 30 * (Math.Cos(( - 90) * Math.PI / 180));
-            ySpeed = 30 * (Math.Sin(( + 90) * Math.PI / 180));
-            //calculate x,y to move missile to middle of spaceship in drawMissile method
-            //x = unitrec.X + spaceRec.Width / 2;
-            //y = spaceRec.Y + spaceRec.Height / 2;
+            xSpeed = 30 * (Math.Cos((missileRotated - 90) * Math.PI / 180));
+            ySpeed = 30 * (Math.Sin((missileRotated + 90) * Math.PI / 180));
             //pass missileRotate angle to missileRotated so that it can be used in the drawMissile method
-            missileRotated = 0;
             missileRec = new Rectangle(x, y, width, height);
         }
         
@@ -56,9 +52,12 @@ namespace Vegetable_Tower_Defense
         
         public void MoveMissile(Graphics g)
         {
-            x += (int)xSpeed;//cast double to an integer value
-            y -= (int)ySpeed;
-            missileRec.Location = new Point(x, y);//missiles new location
+            if (GlobalVariables.play == true)
+            {
+                x += (int)xSpeed;//cast double to an integer value
+                y -= (int)ySpeed;
+                missileRec.Location = new Point(x, y);//missiles new location
+            }
         }
     }
 }
