@@ -23,10 +23,10 @@ namespace Vegetable_Tower_Defense
         //Create a constructor (initialises the values of the fields)
         public Missile(Rectangle unitrec)
         {
-            x = unitrec.X + (unitrec.width / 2); // Starting position at unit location
-            y = unitrec.Y + (unitrec.height / 2); // Starting position at unit location
             width = 20; // Width and height of missile rectange
             height = 20;
+            x = unitrec.X + (width / 2); // Starting position at unit location
+            y = unitrec.Y + (height / 2); // Starting position at unit location
             missileImage = Properties.Resources.missile; //planetImage contains the plane1.png image
             missileRotate = Math.Atan((GlobalVariables.MouseXPos - x) / (GlobalVariables.MouseYPos - y));
             missileRotated = (int)missileRotate; // Casting double to a int
