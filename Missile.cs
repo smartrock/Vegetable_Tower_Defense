@@ -12,8 +12,9 @@ namespace Vegetable_Tower_Defense
     {
         // declare fields to use in the class
         public int x, y, width, height;//variables for the rectangle
-        public int missileRotated;
-        public double xSpeed, ySpeed;
+        public int missileRotated; 
+        public double missileRotate; // Variable for angle of missile
+        public double xSpeed, ySpeed; // Movement speed of missile
         public Image missileImage;//variable for the missile's image
         public Rectangle missileRec;//variable for a rectangle to place our image in
         public Matrix matrixMissile;
@@ -27,7 +28,8 @@ namespace Vegetable_Tower_Defense
             width = 20; // Width and height of missile rectange
             height = 20;
             missileImage = Properties.Resources.missile; //planetImage contains the plane1.png image
-            missileRotated = Math.Atan((GlobalVariables.MouseXPos - x) / (GlobalVariables.MouseYPos - y));
+            missileRotate = Math.Atan((GlobalVariables.MouseXPos - x) / (GlobalVariables.MouseYPos - y));
+            missileRotated = (int)missileRotate; // Casting double to a int
             //this code works out the speed of the missile to be used in the moveMissile method
             xSpeed = 30 * (Math.Cos((missileRotated - 90) * Math.PI / 180));
             ySpeed = 30 * (Math.Sin((missileRotated + 90) * Math.PI / 180));
