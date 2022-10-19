@@ -15,6 +15,7 @@ namespace Vegetable_Tower_Defense
     {
         Graphics g; //declare a graphics object called g 
         bool UnitToPlace = false;
+        public int MissileRange, MissileSpeed, MissileDamage;
 
         public FrmGame()
         {
@@ -57,10 +58,10 @@ namespace Vegetable_Tower_Defense
             GlobalVariables.unitInfo.Add(new GetUnitInfo(4, 1, 300, 1, 500));
             
             // Assigning values to the global ints
-            GlobalVariables.waves = 5;
+            GlobalVariables.waves = 0;
             GlobalVariables.score = 0;
             GlobalVariables.lives = 50;
-            GlobalVariables.money = 2000;
+            GlobalVariables.money = 200;
             
             // Assigning values to the global bools
             GlobalVariables.play = true;
@@ -85,6 +86,7 @@ namespace Vegetable_Tower_Defense
             foreach (Missile m in GlobalVariables.missiles) // The drawing and movement controls for the units class
             {
                 m.DrawMissile(g);
+                m.MoveMissile(g);
                 break;
             }
             foreach (Vegetables v in GlobalVariables.vegetables) // The drawing and movement controls for the vegetables 
@@ -170,6 +172,7 @@ namespace Vegetable_Tower_Defense
             }
             else // If game is pause then just continue on same level with out adding more vegetables
             {
+                GlobalVariables.play = true;
                 TmrMissile.Enabled = true; // Starts units missile timer
                 TmrScreen.Enabled = true; // Checks screen timer is running
                 MnuPause.Enabled = true; // Allows the pause button to be used
@@ -347,9 +350,9 @@ namespace Vegetable_Tower_Defense
 
         private void TmrMissile_Tick(object sender, EventArgs e)
         {
-            if (GlobalVariables.space == true)
+            if (GlobalVariables.space == true && GlobalVariables.units.Count() > 0)
             {
-                GlobalVariables.missiles.Add(new Missile(1));
+                GlobalVariables.missiles.Add(new Missile());
             }
         }
     }

@@ -39,7 +39,7 @@ namespace Vegetable_Tower_Defense
             y = 120;
             width = 32; // Vegetable rectangle dimentions
             height = 32;
-            movespeed = speed * GlobalVariables.waves / 2 + 1; // Makes a fair speed for the vegetables to move on screen
+            movespeed = speed + 1; // Makes a fair speed for the vegetables to move on screen
             // Sets different images with their type
             vegeImg[0] = Properties.Resources.pea;
             vegeImg[1] = Properties.Resources.onion;

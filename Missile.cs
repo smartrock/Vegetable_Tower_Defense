@@ -20,27 +20,28 @@ namespace Vegetable_Tower_Defense
         Point centreMissile;
 
         //Create a constructor (initialises the values of the fields)
-        public Missile(int missileRotate)
+        public Missile()
         {
-            x = 500;
-            y = 500;
+            x = 250;
+            y = 250;
             width = 20;
             height = 20;
             //planetImage contains the plane1.png image
             missileImage = Properties.Resources.missile; 
             //this code works out the speed of the missile to be used in the moveMissile method
-            xSpeed = 30 * (Math.Cos((missileRotate - 90) * Math.PI / 180));
-            ySpeed = 30 * (Math.Sin((missileRotate + 90) * Math.PI / 180));
+            xSpeed = 30 * (Math.Cos(( - 90) * Math.PI / 180));
+            ySpeed = 30 * (Math.Sin(( + 90) * Math.PI / 180));
             //calculate x,y to move missile to middle of spaceship in drawMissile method
             //x = unitrec.X + spaceRec.Width / 2;
             //y = spaceRec.Y + spaceRec.Height / 2;
             //pass missileRotate angle to missileRotated so that it can be used in the drawMissile method
-            missileRotated = missileRotate;
+            missileRotated = 0;
             missileRec = new Rectangle(x, y, width, height);
         }
         
         public void DrawMissile(Graphics g)
         {
+            missileRec = new Rectangle(x, y, width, height); 
             //centre missile 
             centreMissile = new Point(x, y);
             //instantiate a Matrix object called matrixMissile
