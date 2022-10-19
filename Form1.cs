@@ -81,17 +81,17 @@ namespace Vegetable_Tower_Defense
 
             foreach (Units u in GlobalVariables.units) // The drawing and movement controls for the units class
             {
-                u.DrawUnit(g);
+                u.DrawUnit(g); // The function to draw the units on screem
             }
             foreach (Missile m in GlobalVariables.missiles) // The drawing and movement controls for the units class
             {
-                m.DrawMissile(g);
-                m.MoveMissile(g);
-                break;
+                m.DrawMissile(g); // The function to draw the missiles on screen
+                m.MoveMissile(g); // The functio to move the missiles on screen
+                break; // Stops the code breaking if there are no missiles on screen at that moment
             }
             foreach (Vegetables v in GlobalVariables.vegetables) // The drawing and movement controls for the vegetables 
             {
-                v.MoveVegetables(g);
+                v.MoveVegetables(g); // The function to move the vegetables on screen
                 break;// Stops the code breaking once all the vegetables have been destroyed
             }
         }
@@ -172,7 +172,7 @@ namespace Vegetable_Tower_Defense
             }
             else // If game is pause then just continue on same level with out adding more vegetables
             {
-                GlobalVariables.play = true;
+                GlobalVariables.play = true; // Allows the vegetable waves to start moving
                 TmrMissile.Enabled = true; // Starts units missile timer
                 TmrScreen.Enabled = true; // Checks screen timer is running
                 MnuPause.Enabled = true; // Allows the pause button to be used
@@ -216,13 +216,13 @@ namespace Vegetable_Tower_Defense
 
         private void BtnUnit0_Click(object sender, EventArgs e)
         {
-            if (GlobalVariables.money >= 50 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have
+            if (GlobalVariables.money >= 50 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have and you don't already have a unit selected
             {
                 GlobalVariables.money = GlobalVariables.money - 50; // Changes money down
                 GlobalVariables.units.Add(new Units(0)); // Creates a new unit
-                UnitToPlace = true;
+                UnitToPlace = true; // Allows mouse to move unit
             }
-            else if (UnitToPlace == true)
+            else if (UnitToPlace == true) // If there is a unit already moving around with the mouse, it will tell you to place the unit first
             {
                 MessageBox.Show("Place this unit before buying another one.", "Shop alert!");
             }
@@ -231,20 +231,20 @@ namespace Vegetable_Tower_Defense
                 // Show a message saying the you can't buy the unit
                 MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before coming back", "Bank Alert!");
             }
-
-            BtnUnit0.Enabled = false;
+            // Disables and then enables the button so it stops the button being selected and accidently buying another unit
+            BtnUnit0.Enabled = false; 
             BtnUnit0.Enabled = true;
         }
 
         private void BtnUnit1_Click(object sender, EventArgs e)
         {
-            if (GlobalVariables.money >= 100 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have
+            if (GlobalVariables.money >= 100 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have and you don't already have a unit selected
             {
                 GlobalVariables.money = GlobalVariables.money - 100; // Changes money down
                 GlobalVariables.units.Add(new Units(1)); // Creates a new unit
-                UnitToPlace = true;
+                UnitToPlace = true;  // Allows mouse to move unit
             }
-            else if (UnitToPlace == true)
+            else if (UnitToPlace == true) // If there is a unit already moving around with the mouse, it will tell you to place the unit first
             {
                 MessageBox.Show("Place this unit before buying another one.", "Shop alert!");
             }
@@ -253,20 +253,20 @@ namespace Vegetable_Tower_Defense
                 // Show a message saying the you can't buy the unit
                 MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before coming back", "Bank Alert!");
             }
-
+            // Disables and then enables the button so it stops the button being selected and accidently buying another unit
             BtnUnit0.Enabled = false;
             BtnUnit0.Enabled = true;
         }
 
         private void BtnUnit2_Click(object sender, EventArgs e)
         {
-            if (GlobalVariables.money >= 200 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have
+            if (GlobalVariables.money >= 200 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have and you don't already have a unit selected
             {
                 GlobalVariables.money = GlobalVariables.money - 200; // Changes money down
                 GlobalVariables.units.Add(new Units(2)); // Creates a new unit
-                UnitToPlace = true;
+                UnitToPlace = true;  // Allows mouse to move unit
             }
-            else if (UnitToPlace == true)
+            else if (UnitToPlace == true) // If there is a unit already moving around with the mouse, it will tell you to place the unit first
             {
                 MessageBox.Show("Place this unit before buying another one.", "Shop alert!");
             }
@@ -275,20 +275,20 @@ namespace Vegetable_Tower_Defense
                 // Show a message saying the you can't buy the unit
                 MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before coming back", "Bank Alert!");
             }
-
+            // Disables and then enables the button so it stops the button being selected and accidently buying another unit
             BtnUnit0.Enabled = false;
             BtnUnit0.Enabled = true;
         }
 
         private void BtnUnit3_Click(object sender, EventArgs e)
         {
-            if (GlobalVariables.money >= 350 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have
+            if (GlobalVariables.money >= 350 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have and you don't already have a unit selected
             {
                 GlobalVariables.money = GlobalVariables.money - 350; // Changes money down
                 GlobalVariables.units.Add(new Units(3)); // Creates a new unit
-                UnitToPlace = true;
+                UnitToPlace = true;  // Allows mouse to move unit
             }
-            else if (UnitToPlace == true)
+            else if (UnitToPlace == true) // If there is a unit already moving around with the mouse, it will tell you to place the unit first
             {
                 MessageBox.Show("Place this unit before buying another one.", "Shop alert!");
             }
@@ -297,20 +297,20 @@ namespace Vegetable_Tower_Defense
                 // Show a message saying the you can't buy the unit
                 MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before coming back", "Bank Alert!");
             }
-
+            // Disables and then enables the button so it stops the button being selected and accidently buying another unit
             BtnUnit0.Enabled = false;
             BtnUnit0.Enabled = true;
         }
 
         private void BtnUnit4_Click(object sender, EventArgs e)
         {
-            if (GlobalVariables.money >= 500 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have
+            if (GlobalVariables.money >= 500 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have and you don't already have a unit selected
             {
                 GlobalVariables.money = GlobalVariables.money - 500; // Changes money down
                 GlobalVariables.units.Add(new Units(4)); // Creates a new unit
-                UnitToPlace = true;
+                UnitToPlace = true;  // Allows mouse to move unit
             }
-            else if (UnitToPlace == true)
+            else if (UnitToPlace == true) // If there is a unit already moving around with the mouse, it will tell you to place the unit first
             {
                 MessageBox.Show("Place this unit before buying another one.", "Shop alert!");
             }
@@ -319,7 +319,7 @@ namespace Vegetable_Tower_Defense
                 // Show a message saying the you can't buy the unit
                 MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before coming back", "Bank Alert!");
             }
-
+            // Disables and then enables the button so it stops the button being selected and accidently buying another unit
             BtnUnit0.Enabled = false;
             BtnUnit0.Enabled = true;
         }
@@ -339,20 +339,20 @@ namespace Vegetable_Tower_Defense
             if (UnitToPlace == true) // Checks to see if the list of units is greater than 1
             {
                 GlobalVariables.units.Last().MoveUnit(e.X, e.Y); // Moves unit to the mouse X, Y coordinates
-                PnlGame.Invalidate();
+                PnlGame.Invalidate(); // Runs the paint event so the movement is drawn on screen
             }
         }
 
         private void PnlGame_MouseClick(object sender, MouseEventArgs e)
         {
-            if (UnitToPlace == true) { UnitToPlace = false; }
+            if (UnitToPlace == true) { UnitToPlace = false; } // Stops the unit moving to the mouses' position once it has been clicked
         }
 
         private void TmrMissile_Tick(object sender, EventArgs e)
         {
-            if (GlobalVariables.space == true && GlobalVariables.units.Count() > 0)
+            if (GlobalVariables.space == true && GlobalVariables.units.Count() > 0) // Checks if the space bar is being pressed and if there are units on screen
             {
-                GlobalVariables.missiles.Add(new Missile());
+                GlobalVariables.missiles.Add(new Missile()); // Adds a steam of bullets when the space bar is held down
             }
         }
     }
