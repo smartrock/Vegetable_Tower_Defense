@@ -8,14 +8,18 @@ namespace Vegetable_Tower_Defense
 {
     internal class GlobalVariables
     {
+        // Across / inter class variables that will be used by mutliple forms and classes
         private static int V_score, V_money, V_lives, V_waves;
         private static bool V_play, V_space;
+        // Lists to store the specific vegetables and units information
         private static List<GetVegieInfo> V_vegieinfo = new List<GetVegieInfo>();
         private static List<GetUnitInfo> U_unitinfo = new List<GetUnitInfo>();
+        // Lists for what will be created during the game
         private static List<Vegetables> V_vegetables = new List<Vegetables>();
         private static List<Missile> V_missiles = new List<Missile>();
         private static List<Units> V_units = new List<Units>();
 
+        // Defining and assigining values to the inter game variables
         public static int score
         {
             get { return V_score; }
