@@ -9,7 +9,7 @@ namespace Vegetable_Tower_Defense
     internal class GlobalVariables
     {
         // Across / inter class variables that will be used by mutliple forms and classes
-        private static int V_score, V_money, V_lives, V_waves, V_MouseXPos, V_MouseYPos;
+        private static int V_score, V_money, V_lives, V_waves;
         private static bool V_play, V_space;
         // Lists to store the specific vegetables and units information
         private static List<GetVegieInfo> V_vegieinfo = new List<GetVegieInfo>();
@@ -44,18 +44,6 @@ namespace Vegetable_Tower_Defense
             set { V_waves = value; }
         }
         
-        public static int MouseXPos
-        {
-            get { return V_MouseXPos; }
-            set { V_MouseXPos = value; }
-        }
-        
-        public static int MouseYPos
-        {
-            get { return V_MouseYPos; }
-            set { V_MouseYPos = value; }
-        }
-
         public static bool play
         {
             get { return V_play; }
