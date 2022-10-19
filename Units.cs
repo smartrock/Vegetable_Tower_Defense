@@ -29,17 +29,17 @@ namespace Vegetable_Tower_Defense
                 }
             }
 
-            x = 250;
-            y = 250;
+            x = 550;
+            y = 30 + 80 * type;
             width = 50;
             height = 50;
 
             // Sets up the correct image with the corresponding type number
-            unitimage[0] = Properties.Resources.holding;
-            unitimage[1] = Properties.Resources.holding5;
-            unitimage[2] = Properties.Resources.holding2;
+            unitimage[0] = Properties.Resources.unit0;
+            unitimage[1] = Properties.Resources.unit1;
+            unitimage[2] = Properties.Resources.unit2;
             unitimage[3] = Properties.Resources.holding3;
-            unitimage[4] = Properties.Resources.holding4;
+            unitimage[4] = Properties.Resources.unit4;
             // Creates rectangle for units
             unitrec = new Rectangle(x, y, width, height);
         }
@@ -53,10 +53,8 @@ namespace Vegetable_Tower_Defense
         public void MoveUnit(int mouseX, int mouseY)
         {
             // Moving unit to mouse location
-            unitrec.X = mouseX;
-            unitrec.Y = mouseY;
-            
-            //unitrec.Location = new Point(x,y); // Sets new rectangle location
+            x = mouseX - (width / 2);
+            y = mouseY - (height / 2);
         }
     }
 }

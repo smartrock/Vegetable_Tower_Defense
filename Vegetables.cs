@@ -91,7 +91,7 @@ namespace Vegetable_Tower_Defense
                 }
                 else
                 {
-                    GlobalVariables.lives = GlobalVariables.lives - 1; // Changes lives once the vegetables reach the end
+                    GlobalVariables.lives = GlobalVariables.lives - health; // Changes lives once the vegetables reach the end
                     GlobalVariables.vegetables.Remove(this); // Removes vegetable once it is off the screen
                 }
             }

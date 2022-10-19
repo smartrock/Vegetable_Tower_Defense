@@ -14,6 +14,7 @@ namespace Vegetable_Tower_Defense
     public partial class FrmGame : Form
     {
         Graphics g; //declare a graphics object called g 
+        bool UnitToPlace = false;
 
         public FrmGame()
         {
@@ -51,19 +52,19 @@ namespace Vegetable_Tower_Defense
             // Units specific info; type, speed, range, damage, cost
             GlobalVariables.unitInfo.Add(new GetUnitInfo(0, 1, 150, 1, 50));
             GlobalVariables.unitInfo.Add(new GetUnitInfo(1, 1, 100, 5, 100));
-            GlobalVariables.unitInfo.Add(new GetUnitInfo(3, 1, 200, 1, 200));
-            GlobalVariables.unitInfo.Add(new GetUnitInfo(4, 1, 150, 1, 350));
-            GlobalVariables.unitInfo.Add(new GetUnitInfo(5, 1, 300, 1, 500));
+            GlobalVariables.unitInfo.Add(new GetUnitInfo(2, 1, 200, 1, 200));
+            GlobalVariables.unitInfo.Add(new GetUnitInfo(3, 1, 150, 1, 350));
+            GlobalVariables.unitInfo.Add(new GetUnitInfo(4, 1, 300, 1, 500));
             
             // Assigning values to the global ints
-            GlobalVariables.waves = 0;
+            GlobalVariables.waves = 5;
             GlobalVariables.score = 0;
             GlobalVariables.lives = 50;
-            GlobalVariables.money = 200;
+            GlobalVariables.money = 2000;
             
             // Assigning values to the global bools
             GlobalVariables.play = true;
-            GlobalVariables.space;
+            GlobalVariables.space = false;
         }
         
         private void PnlGame_Paint(object sender, PaintEventArgs e)
@@ -80,7 +81,11 @@ namespace Vegetable_Tower_Defense
             foreach (Units u in GlobalVariables.units) // The drawing and movement controls for the units class
             {
                 u.DrawUnit(g);
-                //u.MoveUnit(g);
+            }
+            foreach (Missile m in GlobalVariables.missiles) // The drawing and movement controls for the units class
+            {
+                m.DrawMissile(g);
+                break;
             }
             foreach (Vegetables v in GlobalVariables.vegetables) // The drawing and movement controls for the vegetables 
             {
@@ -145,7 +150,6 @@ namespace Vegetable_Tower_Defense
         private void MnuPause_Click(object sender, EventArgs e)
         {
             GlobalVariables.play = false; // Sets whole game variable to false to stop the waves in the vegetables class
-            TmrWave.Enabled = false; // Stops waves timer
             TmrMissile.Enabled = false; // Stops units missile timer
             MnuPlay.Enabled = true; // Allows players to restart the game
             MnuPause.Enabled = false; // Disables pause until play is clicked again
@@ -158,7 +162,6 @@ namespace Vegetable_Tower_Defense
             if (GlobalVariables.play == true) // If the game isn't paused then start next level
             {
                 GlobalVariables.waves = GlobalVariables.waves + 1; // Adds one to the count of the length of waves to bring a harder waves
-                TmrWave.Enabled = true; // Starts waves timer
                 TmrMissile.Enabled = true; // Starts units missile timer
                 TmrScreen.Enabled = true; // Checks screen timer is running
                 PreLevel(); // Calls function to run level and add vegetables to the screen
@@ -186,12 +189,6 @@ namespace Vegetable_Tower_Defense
             }
         }
 
-        private void TmrWave_Tick(object sender, EventArgs e)
-        {
-            int i;
-            i = GlobalVariables.waves;
-        }
-
         private void TxtName_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             // The code for imputing your name
@@ -214,82 +211,114 @@ namespace Vegetable_Tower_Defense
             }
         }
 
-        private void FrmGame_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (GlobalVariables.units.Count() <= 0) // Checks to see if the list of units is greater than 1
-            {
-                Units.MoveUnit(e.X, e.Y); // Moves unit to the mouse X, Y coordinates
-            }
-        }
-
         private void BtnUnit0_Click(object sender, EventArgs e)
         {
-            if (GlobalVariables.money >= 50) // Checks to see if the unit you have clicked is less than the money you have
+            if (GlobalVariables.money >= 50 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have
             {
                 GlobalVariables.money = GlobalVariables.money - 50; // Changes money down
                 GlobalVariables.units.Add(new Units(0)); // Creates a new unit
+                UnitToPlace = true;
+            }
+            else if (UnitToPlace == true)
+            {
+                MessageBox.Show("Place this unit before buying another one.", "Shop alert!");
             }
             else
             {
                 // Show a message saying the you can't buy the unit
                 MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before coming back", "Bank Alert!");
             }
+
+            BtnUnit0.Enabled = false;
+            BtnUnit0.Enabled = true;
         }
 
         private void BtnUnit1_Click(object sender, EventArgs e)
         {
-            if (GlobalVariables.money >= 100) // Checks to see if the unit you have clicked is less than the money you have
+            if (GlobalVariables.money >= 100 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have
             {
                 GlobalVariables.money = GlobalVariables.money - 100; // Changes money down
                 GlobalVariables.units.Add(new Units(1)); // Creates a new unit
+                UnitToPlace = true;
+            }
+            else if (UnitToPlace == true)
+            {
+                MessageBox.Show("Place this unit before buying another one.", "Shop alert!");
             }
             else
             {
                 // Show a message saying the you can't buy the unit
                 MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before coming back", "Bank Alert!");
             }
+
+            BtnUnit0.Enabled = false;
+            BtnUnit0.Enabled = true;
         }
 
         private void BtnUnit2_Click(object sender, EventArgs e)
         {
-            if (GlobalVariables.money >= 200) // Checks to see if the unit you have clicked is less than the money you have
+            if (GlobalVariables.money >= 200 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have
             {
                 GlobalVariables.money = GlobalVariables.money - 200; // Changes money down
                 GlobalVariables.units.Add(new Units(2)); // Creates a new unit
+                UnitToPlace = true;
+            }
+            else if (UnitToPlace == true)
+            {
+                MessageBox.Show("Place this unit before buying another one.", "Shop alert!");
             }
             else
             {
                 // Show a message saying the you can't buy the unit
                 MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before coming back", "Bank Alert!");
             }
+
+            BtnUnit0.Enabled = false;
+            BtnUnit0.Enabled = true;
         }
 
         private void BtnUnit3_Click(object sender, EventArgs e)
         {
-            if (GlobalVariables.money >= 350) // Checks to see if the unit you have clicked is less than the money you have
+            if (GlobalVariables.money >= 350 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have
             {
                 GlobalVariables.money = GlobalVariables.money - 350; // Changes money down
                 GlobalVariables.units.Add(new Units(3)); // Creates a new unit
+                UnitToPlace = true;
+            }
+            else if (UnitToPlace == true)
+            {
+                MessageBox.Show("Place this unit before buying another one.", "Shop alert!");
             }
             else
             {
                 // Show a message saying the you can't buy the unit
                 MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before coming back", "Bank Alert!");
             }
+
+            BtnUnit0.Enabled = false;
+            BtnUnit0.Enabled = true;
         }
 
         private void BtnUnit4_Click(object sender, EventArgs e)
         {
-            if (GlobalVariables.money >= 500) // Checks to see if the unit you have clicked is less than the money you have
+            if (GlobalVariables.money >= 500 && UnitToPlace == false) // Checks to see if the unit you have clicked is less than the money you have
             {
                 GlobalVariables.money = GlobalVariables.money - 500; // Changes money down
                 GlobalVariables.units.Add(new Units(4)); // Creates a new unit
+                UnitToPlace = true;
+            }
+            else if (UnitToPlace == true)
+            {
+                MessageBox.Show("Place this unit before buying another one.", "Shop alert!");
             }
             else
             {
                 // Show a message saying the you can't buy the unit
                 MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before coming back", "Bank Alert!");
             }
+
+            BtnUnit0.Enabled = false;
+            BtnUnit0.Enabled = true;
         }
 
         private void FrmGame_KeyDown(object sender, KeyEventArgs e)
@@ -302,15 +331,26 @@ namespace Vegetable_Tower_Defense
             if (e.KeyData == Keys.Space) { GlobalVariables.space = false; } // Checks to see if the space bar isn't being pressed
         }
 
-        //private void Form1_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    foreach (Rectangle r in units)
-        //    {
-        //        if (area[count].Contains(e.X, e.Y))
-        //        {
-        //            area[count].Location = new Point(e.X, e.Y);
-        //        }
-        //    }
-        //}
+        private void PnlGame_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (UnitToPlace == true) // Checks to see if the list of units is greater than 1
+            {
+                GlobalVariables.units.Last().MoveUnit(e.X, e.Y); // Moves unit to the mouse X, Y coordinates
+                PnlGame.Invalidate();
+            }
+        }
+
+        private void PnlGame_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (UnitToPlace == true) { UnitToPlace = false; }
+        }
+
+        private void TmrMissile_Tick(object sender, EventArgs e)
+        {
+            if (GlobalVariables.space == true)
+            {
+                GlobalVariables.missiles.Add(new Missile(1));
+            }
+        }
     }
 }

@@ -36,7 +36,6 @@ namespace Vegetable_Tower_Defense
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuPlay = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuPause = new System.Windows.Forms.ToolStripMenuItem();
-            this.TmrWave = new System.Windows.Forms.Timer(this.components);
             this.LblScore = new System.Windows.Forms.Label();
             this.LblWaves = new System.Windows.Forms.Label();
             this.LblMoney = new System.Windows.Forms.Label();
@@ -45,16 +44,16 @@ namespace Vegetable_Tower_Defense
             this.TmrMissile = new System.Windows.Forms.Timer(this.components);
             this.TxtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.BtnUnit4 = new System.Windows.Forms.Button();
+            this.BtnUnit3 = new System.Windows.Forms.Button();
+            this.BtnUnit2 = new System.Windows.Forms.Button();
+            this.BtnUnit1 = new System.Windows.Forms.Button();
+            this.BtnUnit0 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PnlGame = new System.Windows.Forms.Panel();
-            this.BtnUnit0 = new System.Windows.Forms.Button();
-            this.BtnUnit1 = new System.Windows.Forms.Button();
-            this.BtnUnit2 = new System.Windows.Forms.Button();
-            this.BtnUnit3 = new System.Windows.Forms.Button();
-            this.BtnUnit4 = new System.Windows.Forms.Button();
             this.MnuGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -122,6 +121,7 @@ namespace Vegetable_Tower_Defense
             // TmrMissile
             // 
             this.TmrMissile.Interval = 50;
+            this.TmrMissile.Tick += new System.EventHandler(this.TmrMissile_Tick);
             // 
             // TxtName
             // 
@@ -133,6 +133,57 @@ namespace Vegetable_Tower_Defense
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
+            // 
+            // BtnUnit4
+            // 
+            this.BtnUnit4.BackgroundImage = global::Vegetable_Tower_Defense.Properties.Resources.unit4;
+            resources.ApplyResources(this.BtnUnit4, "BtnUnit4");
+            this.BtnUnit4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnUnit4.Name = "BtnUnit4";
+            this.BtnUnit4.TabStop = false;
+            this.BtnUnit4.UseVisualStyleBackColor = true;
+            this.BtnUnit4.Click += new System.EventHandler(this.BtnUnit4_Click);
+            // 
+            // BtnUnit3
+            // 
+            this.BtnUnit3.BackgroundImage = global::Vegetable_Tower_Defense.Properties.Resources.holding3;
+            resources.ApplyResources(this.BtnUnit3, "BtnUnit3");
+            this.BtnUnit3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnUnit3.Name = "BtnUnit3";
+            this.BtnUnit3.TabStop = false;
+            this.BtnUnit3.UseVisualStyleBackColor = true;
+            this.BtnUnit3.Click += new System.EventHandler(this.BtnUnit3_Click);
+            // 
+            // BtnUnit2
+            // 
+            this.BtnUnit2.BackgroundImage = global::Vegetable_Tower_Defense.Properties.Resources.unit2;
+            resources.ApplyResources(this.BtnUnit2, "BtnUnit2");
+            this.BtnUnit2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnUnit2.Name = "BtnUnit2";
+            this.BtnUnit2.TabStop = false;
+            this.BtnUnit2.UseVisualStyleBackColor = true;
+            this.BtnUnit2.Click += new System.EventHandler(this.BtnUnit2_Click);
+            // 
+            // BtnUnit1
+            // 
+            this.BtnUnit1.BackgroundImage = global::Vegetable_Tower_Defense.Properties.Resources.unit1;
+            resources.ApplyResources(this.BtnUnit1, "BtnUnit1");
+            this.BtnUnit1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnUnit1.Name = "BtnUnit1";
+            this.BtnUnit1.TabStop = false;
+            this.BtnUnit1.UseVisualStyleBackColor = true;
+            this.BtnUnit1.Click += new System.EventHandler(this.BtnUnit1_Click);
+            // 
+            // BtnUnit0
+            // 
+            this.BtnUnit0.BackColor = System.Drawing.Color.Transparent;
+            this.BtnUnit0.BackgroundImage = global::Vegetable_Tower_Defense.Properties.Resources.unit0;
+            resources.ApplyResources(this.BtnUnit0, "BtnUnit0");
+            this.BtnUnit0.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnUnit0.Name = "BtnUnit0";
+            this.BtnUnit0.TabStop = false;
+            this.BtnUnit0.UseVisualStyleBackColor = false;
+            this.BtnUnit0.Click += new System.EventHandler(this.BtnUnit0_Click);
             // 
             // pictureBox3
             // 
@@ -168,46 +219,8 @@ namespace Vegetable_Tower_Defense
             this.PnlGame.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PnlGame.Name = "PnlGame";
             this.PnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlGame_Paint);
-            // 
-            // BtnUnit0
-            // 
-            this.BtnUnit0.BackgroundImage = global::Vegetable_Tower_Defense.Properties.Resources.holding;
-            resources.ApplyResources(this.BtnUnit0, "BtnUnit0");
-            this.BtnUnit0.Name = "BtnUnit0";
-            this.BtnUnit0.UseVisualStyleBackColor = true;
-            this.BtnUnit0.Click += new System.EventHandler(this.BtnUnit0_Click);
-            // 
-            // BtnUnit1
-            // 
-            this.BtnUnit1.BackgroundImage = global::Vegetable_Tower_Defense.Properties.Resources.holding5;
-            resources.ApplyResources(this.BtnUnit1, "BtnUnit1");
-            this.BtnUnit1.Name = "BtnUnit1";
-            this.BtnUnit1.UseVisualStyleBackColor = true;
-            this.BtnUnit1.Click += new System.EventHandler(this.BtnUnit1_Click);
-            // 
-            // BtnUnit2
-            // 
-            this.BtnUnit2.BackgroundImage = global::Vegetable_Tower_Defense.Properties.Resources.holding2;
-            resources.ApplyResources(this.BtnUnit2, "BtnUnit2");
-            this.BtnUnit2.Name = "BtnUnit2";
-            this.BtnUnit2.UseVisualStyleBackColor = true;
-            this.BtnUnit2.Click += new System.EventHandler(this.BtnUnit2_Click);
-            // 
-            // BtnUnit3
-            // 
-            this.BtnUnit3.BackgroundImage = global::Vegetable_Tower_Defense.Properties.Resources.holding3;
-            resources.ApplyResources(this.BtnUnit3, "BtnUnit3");
-            this.BtnUnit3.Name = "BtnUnit3";
-            this.BtnUnit3.UseVisualStyleBackColor = true;
-            this.BtnUnit3.Click += new System.EventHandler(this.BtnUnit3_Click);
-            // 
-            // BtnUnit4
-            // 
-            this.BtnUnit4.BackgroundImage = global::Vegetable_Tower_Defense.Properties.Resources.holding4;
-            resources.ApplyResources(this.BtnUnit4, "BtnUnit4");
-            this.BtnUnit4.Name = "BtnUnit4";
-            this.BtnUnit4.UseVisualStyleBackColor = true;
-            this.BtnUnit4.Click += new System.EventHandler(this.BtnUnit4_Click);
+            this.PnlGame.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlGame_MouseClick);
+            this.PnlGame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PnlGame_MouseMove);
             // 
             // FrmGame
             // 
@@ -236,7 +249,6 @@ namespace Vegetable_Tower_Defense
             this.Load += new System.EventHandler(this.FrmGame_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmGame_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmGame_KeyUp);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmGame_MouseMove);
             this.MnuGame.ResumeLayout(false);
             this.MnuGame.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -254,7 +266,6 @@ namespace Vegetable_Tower_Defense
         private System.Windows.Forms.ToolStripMenuItem playToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MnuPlay;
         private System.Windows.Forms.ToolStripMenuItem MnuPause;
-        private System.Windows.Forms.Timer TmrWave;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.Label LblScore;
         private System.Windows.Forms.Label LblWaves;

@@ -155,5 +155,17 @@
   <ItemGroup>
     <None Include="Resources\holding5.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pixil-frame-0 %281%29 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pixil-frame-0 %284%29 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pixil-frame-0 %282%29 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pixil-frame-0 %283%29 %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
