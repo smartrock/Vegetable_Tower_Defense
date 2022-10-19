@@ -27,7 +27,7 @@ namespace Vegetable_Tower_Defense
             width = 20; // Width and height of missile rectange
             height = 20;
             missileImage = Properties.Resources.missile; //planetImage contains the plane1.png image
-            missileRotated = Math.InverseTan((GlobalVariables.MouseXPos - x) / (GlobalVariables.MouseYPos - y));
+            missileRotated = Math.Atan((GlobalVariables.MouseXPos - x) / (GlobalVariables.MouseYPos - y));
             //this code works out the speed of the missile to be used in the moveMissile method
             xSpeed = 30 * (Math.Cos((missileRotated - 90) * Math.PI / 180));
             ySpeed = 30 * (Math.Sin((missileRotated + 90) * Math.PI / 180));
