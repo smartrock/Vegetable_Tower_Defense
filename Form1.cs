@@ -254,8 +254,8 @@ namespace Vegetable_Tower_Defense
                 MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before coming back", "Bank Alert!");
             }
             // Disables and then enables the button so it stops the button being selected and accidently buying another unit
-            BtnUnit0.Enabled = false;
-            BtnUnit0.Enabled = true;
+            BtnUnit1.Enabled = false;
+            BtnUnit2.Enabled = true;
         }
 
         private void BtnUnit2_Click(object sender, EventArgs e)
@@ -276,8 +276,8 @@ namespace Vegetable_Tower_Defense
                 MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before coming back", "Bank Alert!");
             }
             // Disables and then enables the button so it stops the button being selected and accidently buying another unit
-            BtnUnit0.Enabled = false;
-            BtnUnit0.Enabled = true;
+            BtnUnit2.Enabled = false;
+            BtnUnit2.Enabled = true;
         }
 
         private void BtnUnit3_Click(object sender, EventArgs e)
@@ -298,8 +298,8 @@ namespace Vegetable_Tower_Defense
                 MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before coming back", "Bank Alert!");
             }
             // Disables and then enables the button so it stops the button being selected and accidently buying another unit
-            BtnUnit0.Enabled = false;
-            BtnUnit0.Enabled = true;
+            BtnUnit3.Enabled = false;
+            BtnUnit3.Enabled = true;
         }
 
         private void BtnUnit4_Click(object sender, EventArgs e)
@@ -320,8 +320,8 @@ namespace Vegetable_Tower_Defense
                 MessageBox.Show("You don't have enough money to buy this. Try destroying more vegetables before coming back", "Bank Alert!");
             }
             // Disables and then enables the button so it stops the button being selected and accidently buying another unit
-            BtnUnit0.Enabled = false;
-            BtnUnit0.Enabled = true;
+            BtnUnit4.Enabled = false;
+            BtnUnit4.Enabled = true;
         }
 
         private void FrmGame_KeyDown(object sender, KeyEventArgs e)
