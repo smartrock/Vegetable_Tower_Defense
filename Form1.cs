@@ -16,7 +16,6 @@ namespace Vegetable_Tower_Defense
         Graphics g; //declare a graphics object called g 
         public int CurrentMouseX, CurrentMouseY; // Mouse posistion variables
         bool UnitToPlace = false; // Bool for moving units around
-        public int MissileRange, MissileSpeed, MissileDamage; 
 
         public FrmGame()
         {
@@ -86,8 +85,8 @@ namespace Vegetable_Tower_Defense
             }
             for (int m = 0; m < GlobalVariables.missiles.Count(); m++) // The drawing and movement controls for the units class
             {
-                m.DrawMissile(g); // The function to draw the missiles on screen
-                m.MoveMissile(g); // The functio to move the missiles on screen
+                GlobalVariables.missiles[m].DrawMissile(g); // The function to draw the missiles on screen
+                GlobalVariables.missiles[m].MoveMissile(g); // The function to move the missiles on screen
             }
             foreach (Vegetables v in GlobalVariables.vegetables) // The drawing and movement controls for the vegetables 
             {
@@ -345,7 +344,11 @@ namespace Vegetable_Tower_Defense
             CurrentMouseX = e.X;
             CurrentMouseY = e.Y;
         }
-
+        
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////// Create new form 1 mouse move event for Current mouse x and y ///////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         private void PnlGame_MouseClick(object sender, MouseEventArgs e)
         {
             if (UnitToPlace == true) { UnitToPlace = false; } // Stops the unit moving to the mouses' position once it has been clicked
@@ -366,10 +369,10 @@ namespace Vegetable_Tower_Defense
                 {
                     if (GlobalVariables.vegetables.Count() > 0) // Checks that there are vegetables still to come
                     {
-                        if (GlobalVariables.vegetables[v].IntersectsWith(GlobalVariables.missiles[m])) // If the missile and vegetable touch
+                        if (GlobalVariables.vegetables[v].vegearea.IntersectsWith(GlobalVariables.missiles[m].missileRec)) // If the missile and vegetable touch
                         {
-                            GlobalVariables.missiles.Remove(m); // Removes missiles and vegetables once they contact
-                            GlobalVariables.vegetables.Remove(v);
+                            GlobalVariables.missiles.Remove(GlobalVariables.missiles[m]); // Removes missiles and vegetables once they contact
+                            GlobalVariables.vegetables.Remove(GlobalVariables.vegetables[v]);
                         }
                         else
                         {
@@ -378,7 +381,15 @@ namespace Vegetable_Tower_Defense
                     }
                 }
             }
-            this.Invalidate();
+            for (int i = 0; i < GlobalVariables.missiles.Count(); i++)
+            {
+                // Checks if the missile is touching the boundary of the game panel
+                if (GlobalVariables.missiles[i].missileRec.X < 0 || GlobalVariables.missiles[i].missileRec.Y < 0 || GlobalVariables.missiles[i].missileRec.X > PnlGame.Width || GlobalVariables.missiles[i].missileRec.Y > PnlGame.Height)
+                {
+                    GlobalVariables.missiles.Remove(GlobalVariables.missiles[i]); // Removes the missile if it is outside the the map panel
+                }
+            }
+            this.Invalidate(); // Refreshs the whole game
         }
     }
 }
