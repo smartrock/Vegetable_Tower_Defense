@@ -21,14 +21,14 @@ namespace Vegetable_Tower_Defense
         Point centreMissile;
 
         //Create a constructor (initialises the values of the fields)
-        public Missile(Rectangle unitrec, int CurrentMouseX, int CurrentMouseY)
+        public Missile(Rectangle unitrec, int Mouse_X, int Mouse_Y)
         {
             width = 20; // Width and height of missile rectange
             height = 20;
             x = unitrec.X + (width / 2); // Starting position at unit location
             y = unitrec.Y + (height / 2); // Starting position at unit location
             missileImage = Properties.Resources.missile; //planetImage contains the plane1.png image
-            missileRotate = Math.Atan(((CurrentMouseX - x) / (CurrentMouse - y) * Math.PI / 180)); // Calculating angle for missiles
+            missileRotate = ((Math.Atan((Mouse_X - x) / (Mouse_Y - y))) * 180 / Math.PI); // Calculating angle for missiles
             missileRotated = (int)missileRotate; // Casting double to a int
             //this code works out the speed of the missile to be used in the moveMissile method
             xSpeed = 30 * (Math.Cos((missileRotated - 90) * Math.PI / 180));
