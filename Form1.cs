@@ -345,10 +345,6 @@ namespace Vegetable_Tower_Defense
             CurrentMouseY = e.Y;
         }
         
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////////////////// Create new form 1 mouse move event for Current mouse x and y ///////////////
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
         private void PnlGame_MouseClick(object sender, MouseEventArgs e)
         {
             if (UnitToPlace == true) { UnitToPlace = false; } // Stops the unit moving to the mouses' position once it has been clicked
@@ -360,7 +356,7 @@ namespace Vegetable_Tower_Defense
             {
                 foreach (Units unit in GlobalVariables.units)
                 {
-                    GlobalVariables.missiles.Add(new Missile(units.unitrec, CurrentMouseX, CurrentMouseY)); // Adds a steam of bullets when the space bar is held down
+                    GlobalVariables.missiles.Add(new Missile(unit.unitrec, CurrentMouseX, CurrentMouseY)); // Adds a steam of bullets when the space bar is held down
                 }
             }
             for (int v = 0; v < GlobalVariables.vegetables.Count(); v++)

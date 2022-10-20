@@ -120,7 +120,7 @@ namespace Vegetable_Tower_Defense
             // 
             // TmrMissile
             // 
-            this.TmrMissile.Interval = 50;
+            this.TmrMissile.Interval = 500;
             this.TmrMissile.Tick += new System.EventHandler(this.TmrMissile_Tick);
             // 
             // TxtName
@@ -146,7 +146,7 @@ namespace Vegetable_Tower_Defense
             // 
             // BtnUnit3
             // 
-            this.BtnUnit3.BackgroundImage = global::Vegetable_Tower_Defense.Properties.Resources.holding3;
+            this.BtnUnit3.BackgroundImage = global::Vegetable_Tower_Defense.Properties.Resources.unit3;
             resources.ApplyResources(this.BtnUnit3, "BtnUnit3");
             this.BtnUnit3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnUnit3.Name = "BtnUnit3";

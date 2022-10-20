@@ -38,7 +38,7 @@ namespace Vegetable_Tower_Defense
             unitimage[0] = Properties.Resources.unit0;
             unitimage[1] = Properties.Resources.unit1;
             unitimage[2] = Properties.Resources.unit2;
-            unitimage[3] = Properties.Resources.holding3;
+            unitimage[3] = Properties.Resources.unit3;
             unitimage[4] = Properties.Resources.unit4;
             // Creates rectangle for units
             unitrec = new Rectangle(x, y, width, height);
