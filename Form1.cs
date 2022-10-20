@@ -14,8 +14,9 @@ namespace Vegetable_Tower_Defense
     public partial class FrmGame : Form
     {
         Graphics g; //declare a graphics object called g 
-        bool UnitToPlace = false;
-        public int MissileRange, MissileSpeed, MissileDamage;
+        public int CurrentMouseX, CurrentMouseY; // Mouse posistion variables
+        bool UnitToPlace = false; // Bool for moving units around
+        public int MissileRange, MissileSpeed, MissileDamage; 
 
         public FrmGame()
         {
@@ -52,18 +53,16 @@ namespace Vegetable_Tower_Defense
 
             // Units specific info; type, speed, range, damage, cost
             GlobalVariables.unitInfo.Add(new GetUnitInfo(0, 1, 150, 1, 50));
-            GlobalVariables.unitInfo.Add(new GetUnitInfo(1, 1, 100, 5, 100));
-            GlobalVariables.unitInfo.Add(new GetUnitInfo(2, 1, 200, 1, 200));
-            GlobalVariables.unitInfo.Add(new GetUnitInfo(3, 1, 150, 1, 350));
-            GlobalVariables.unitInfo.Add(new GetUnitInfo(4, 1, 300, 1, 500));
+            GlobalVariables.unitInfo.Add(new GetUnitInfo(1, 2, 100, 2, 100));
+            GlobalVariables.unitInfo.Add(new GetUnitInfo(2, 2, 200, 5, 200));
+            GlobalVariables.unitInfo.Add(new GetUnitInfo(3, 3, 150, 5, 350));
+            GlobalVariables.unitInfo.Add(new GetUnitInfo(4, 4, 300, 10, 500));
             
             // Assigning values to the global ints
             GlobalVariables.waves = 0;
             GlobalVariables.score = 0;
             GlobalVariables.lives = 50;
             GlobalVariables.money = 200;
-            GlobalVariables.MouseXPos = 0;
-            GlobalVariables.MouseYPos = 0;
             
             // Assigning values to the global bools
             GlobalVariables.play = true;
@@ -85,11 +84,10 @@ namespace Vegetable_Tower_Defense
             {
                 u.DrawUnit(g); // The function to draw the units on screem
             }
-            foreach (Missile m in GlobalVariables.missiles) // The drawing and movement controls for the units class
+            for (int m = 0; m < GlobalVariables.missiles.Count(); m++) // The drawing and movement controls for the units class
             {
                 m.DrawMissile(g); // The function to draw the missiles on screen
                 m.MoveMissile(g); // The functio to move the missiles on screen
-                break; // Stops the code breaking if there are no missiles on screen at that moment
             }
             foreach (Vegetables v in GlobalVariables.vegetables) // The drawing and movement controls for the vegetables 
             {
@@ -257,7 +255,7 @@ namespace Vegetable_Tower_Defense
             }
             // Disables and then enables the button so it stops the button being selected and accidently buying another unit
             BtnUnit1.Enabled = false;
-            BtnUnit2.Enabled = true;
+            BtnUnit1.Enabled = true;
         }
 
         private void BtnUnit2_Click(object sender, EventArgs e)
@@ -344,8 +342,8 @@ namespace Vegetable_Tower_Defense
                 PnlGame.Invalidate(); // Runs the paint event so the movement is drawn on screen
             }
             // Setting the mouse coordinates to inter form variables
-            GlobalVariables.MouseXPos = e.X;
-            GlobalVariables.MouseYPos = e.Y;
+            CurrentMouseX = e.X;
+            CurrentMouseY = e.Y;
         }
 
         private void PnlGame_MouseClick(object sender, MouseEventArgs e)
@@ -359,18 +357,24 @@ namespace Vegetable_Tower_Defense
             {
                 foreach (Units unit in GlobalVariables.units)
                 {
-                    GlobalVariables.missiles.Add(new Missile(units.unitrec)); // Adds a steam of bullets when the space bar is held down
+                    GlobalVariables.missiles.Add(new Missile(units.unitrec, CurrentMouseX, CurrentMouseY)); // Adds a steam of bullets when the space bar is held down
                 }
             }
-            foreach (Vegetables v in GlobalVariables.vegetables)
+            for (int v = 0; v < GlobalVariables.vegetables.Count(); v++)
             {
-                foreach (Missile m in GlobalVariables.missiles)
+                for(int m = 0; m < GlobalVariables.missiles.Count(); m++)
                 {
-                    if (v.vegearea.IntersectsWith(m.missileRec))
+                    if (GlobalVariables.vegetables.Count() > 0) // Checks that there are vegetables still to come
                     {
-                        GlobalVariables.missiles.Remove(m); // Removes missiles and vegetables once they contact
-                        GlobalVariables.vegetables.Remove(v);
-                        break; // Stops code breaking when there are no more missiles or vegetables
+                        if (GlobalVariables.vegetables[v].IntersectsWith(GlobalVariables.missiles[m])) // If the missile and vegetable touch
+                        {
+                            GlobalVariables.missiles.Remove(m); // Removes missiles and vegetables once they contact
+                            GlobalVariables.vegetables.Remove(v);
+                        }
+                        else
+                        {
+                            break; // Stops code breaking when there are no more missiles or vegetables
+                        }
                     }
                 }
             }
